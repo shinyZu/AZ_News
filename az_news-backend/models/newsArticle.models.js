@@ -13,7 +13,7 @@ const newsArticleSchema = new mongoose.Schema({
     required: true,
   },
 
-  category: {
+  code: {
     type: String,
     required: true,
   },
@@ -23,11 +23,11 @@ const newsArticleSchema = new mongoose.Schema({
     required: true,
   },
 
-  editor_id: {
+  nic_no: {
     type: String,
     required: true,
   },
 });
 
 // export newsArticleSchema as a model
-module.exports = mongoose.model("Editor", newsArticleSchema);
+module.exports = mongoose.model("NewsArticle", newsArticleSchema);

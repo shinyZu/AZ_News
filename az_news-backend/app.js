@@ -9,11 +9,11 @@ connection.establishConnection;
 
 const editor = require("./routes/editor");
 const category = require("./routes/category");
-// const news = require("./routes/news");
+const news = require("./routes/news");
 
 app.use("/editor", editor);
 app.use("/category", category);
-// app.use("/news", news);
+app.use("/news", news);
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello Express!!!</h1>");
