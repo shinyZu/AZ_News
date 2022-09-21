@@ -3,6 +3,11 @@ const validator = require("validator");
 
 // Creating of a schema in "az_news" database
 const editorSchema = new mongoose.Schema({
+  nic_no: {
+    type: String,
+    required: true,
+  },
+
   name: {
     type: String,
     required: true,
