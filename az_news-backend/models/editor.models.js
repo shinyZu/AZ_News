@@ -6,6 +6,13 @@ const editorSchema = new mongoose.Schema({
   nic_no: {
     type: String,
     required: true,
+    unique: true,
+    validate: {
+      validator: function (val) {
+        return /[0-9]{9}[v]|[0-9]{12}/.test(val);
+      },
+      message: (val) => "Invalid NIC No!",
+    },
   },
 
   name: {
