@@ -3,9 +3,16 @@ const validator = require("validator");
 
 // Creating of a schema in "az_news" database
 const categorySchema = new mongoose.Schema({
-  category_code: {
+  code: {
     type: String,
     required: true,
+    unique: true,
+    validate: {
+      validator: function (val) {
+        return /(CTG-000)[0-9]/.test(val);
+      },
+      message: (val) => "Invalid Category Code!",
+    },
   },
 
   category: {
