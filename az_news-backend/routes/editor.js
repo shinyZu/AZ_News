@@ -39,14 +39,18 @@ router.post("/", async (req, res) => {
   editor.save((err, result) => {
     // if any error occured while saving
     if (err) {
+      // console.log(err);
+      // console.log(err.keyPattern.nic_no);
       if (err.errors) {
         return res.status(500).send(err.message.split(":")[2]);
       }
 
       if (err.keyPattern.contact_no == 1) {
         return res.status(404).send("Duplicate Contact No!");
-      } else if (err.keyPattern != null) {
+      } else if (err.keyPattern.email == 1) {
         return res.status(404).send("An Editor with this Email already exist!");
+      } else if (err.keyPattern.editor_nic == 1) {
+        return res.status(404).send("Duplicate NIC No!");
       } else if (!result) {
         return res
           .status(404)

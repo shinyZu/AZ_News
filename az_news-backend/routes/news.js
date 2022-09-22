@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const router = express.Router();
-app.use(express.json());
+// app.use(express.json());
 
 const Grid = require("gridfs-stream");
 const mongoose = require("mongoose");
@@ -69,7 +69,8 @@ router.get("/file/:filename", async (req, res) => {
 // To publish a new News
 router.post("/", upload.single("media_body"), async (req, res) => {
   const body = req.body;
-  console.log(req.file);
+  // console.log(req.file);
+  console.log(body);
 
   let news;
 
@@ -79,23 +80,23 @@ router.post("/", upload.single("media_body"), async (req, res) => {
       headline: body.headline,
       text_body: body.text_body,
       media_body: imgUrl,
-      category_code: body.category_code,
+      category: body.category,
       date: body.date,
-      editor_nic: body.editor_nic,
+      editor: body.editor,
     });
   } else {
     news = new News({
       headline: body.headline,
       text_body: body.text_body,
-      media_body: null,
-      category_code: body.category_code,
+      media_body: "null",
+      category: body.category,
       date: body.date,
-      editor_nic: body.editor_nic,
+      editor: body.editor,
     });
   }
 
   // Checks whether the Editor exist or not
-  Editor.findById(body.editor_nic, (err1, editor) => {
+  Editor.findById(body.editor, (err1, editor) => {
     if (err1) {
       return res.status(500).send(err1);
     }
@@ -104,7 +105,7 @@ router.post("/", upload.single("media_body"), async (req, res) => {
     }
 
     // Checks whether the Category exist or not
-    Category.findById(body.category_code, (err2, category) => {
+    Category.findById(body.category, (err2, category) => {
       if (err2) {
         return res.status(500).send(err2);
       }
@@ -126,38 +127,51 @@ router.post("/", upload.single("media_body"), async (req, res) => {
   });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", upload.single("media_body"), async (req, res) => {
   const body = req.body;
+  // console.log(body);
+  // console.log(req.file);
 
-  Editor.findById(body.editor_nic, (err1, editor) => {
-    if (err1) {
-      return res.status(500).send(err1);
+  News.findById(req.params.id, (err2, resultNews) => {
+    if (err2) {
+      return res.status(500).send(err2);
     }
-    if (!editor) {
-      return res.status(404).send("Editor doesn't exist!");
+    if (!resultNews) {
+      return res.status(404).send("No such News!");
     }
 
-    Category.findById(body.category_code, (err1, category) => {
+    Editor.findById(body.editor, (err1, editor) => {
       if (err1) {
         return res.status(500).send(err1);
       }
-      if (!category) {
-        return res.status(404).send("Category doesn't exist!");
+      if (!editor) {
+        return res.status(404).send("Editor doesn't exist!");
       }
 
-      News.findById(req.params.id, (err2, resultNews) => {
-        if (err2) {
-          return res.status(500).send(err2);
+      Category.findById(body.category, (err1, category) => {
+        if (err1) {
+          return res.status(500).send(err1);
         }
-        if (!resultNews) {
-          return res.status(404).send("No such News!");
+        if (!category) {
+          return res.status(404).send("Category doesn't exist!");
         }
-        resultNews.headline = body.headline;
-        (resultNews.text_body = body.text_body),
-          (resultNews.media_body = body.media_body),
-          (resultNews.category_code = body.category_code);
-        resultNews.date = body.date;
-        resultNews.editor_nic = body.editor_nic;
+
+        if (req.file) {
+          const imgUrl = `http://localhost:4080/file/${req.file.filename}`;
+          resultNews.headline = body.headline;
+          resultNews.text_body = body.text_body;
+          resultNews.media_body = imgUrl;
+          resultNews.category = body.category;
+          resultNews.date = body.date;
+          resultNews.editor = body.editor;
+        } else {
+          resultNews.headline = body.headline;
+          resultNews.text_body = body.text_body;
+          resultNews.media_body = "null";
+          resultNews.category = body.category;
+          resultNews.date = body.date;
+          resultNews.editor = body.editor;
+        }
 
         resultNews.save((err3, result) => {
           if (err3) {
@@ -208,3 +222,109 @@ router.delete("/file/:filename", (req, res) => {
 });
 
 module.exports = router;
+
+/* 
+  Editor.findById(body.editor, (err1, editor) => {
+    if (err1) {
+      return res.status(500).send(err1);
+    }
+    if (!editor) {
+      return res.status(404).send("Editor doesn't exist!");
+    }
+    Category.findById(body.category, (err1, category) => {
+      if (err1) {
+        return res.status(500).send(err1);
+      }
+      if (!category) {
+        return res.status(404).send("Category doesn't exist!");
+      }
+
+      News.findById(req.params.id, (err2, resultNews) => {
+        if (err2) {
+          return res.status(500).send(err2);
+        }
+        if (!resultNews) {
+          return res.status(404).send("No such News!");
+        }
+
+        if (req.file) {
+          const imgUrl = `http://localhost:4080/file/${req.file.filename}`;
+          resultNews.headline = body.headline;
+          resultNews.text_body = body.text_body;
+          resultNews.media_body = imgUrl;
+          resultNews.category = body.category;
+          resultNews.date = body.date;
+          resultNews.editor = body.editor;
+        }
+
+        resultNews.save((err3, result) => {
+          if (err3) {
+            return res.status(500).send(err3.message.split(":")[2]);
+          }
+          if (!result) {
+            return res.status(404).send("No such News!");
+          }
+          res.status(200).send("News Updated Successfully!!!");
+        });
+      });
+    });
+  });
+*/
+
+/* 
+
+News.findById(req.params.id, (err2, resultNews) => {
+    if (err2) {
+      return res.status(500).send(err2);
+    }
+    if (!resultNews) {
+      return res.status(404).send("No such News!");
+    }
+
+    Editor.findById(body.editor, (err1, editor) => {
+      if (err1) {
+        return res.status(500).send(err1);
+      }
+      if (!editor) {
+        return res.status(404).send("Editor doesn't exist!");
+      }
+
+      Category.findById(body.category, (err1, category) => {
+        if (err1) {
+          return res.status(500).send(err1);
+        }
+        if (!category) {
+          return res.status(404).send("Category doesn't exist!");
+        }
+        resultNews.headline = body.headline;
+        resultNews.text_body = body.text_body;
+        resultNews.media_body = body.media_body;
+        resultNews.category = body.category;
+        resultNews.date = body.date;
+        resultNews.editor = body.editor;
+
+        resultNews.save((err3, result) => {
+          if (err3) {
+            return res.status(500).send(err3.message.split(":")[2]);
+          }
+          if (!result) {
+            return res.status(404).send("No such News!");
+          }
+          res.status(200).send("News Updated Successfully!!!");
+        });
+      });
+    });
+  });
+*/
+
+/* 
+
+{
+    "headline": "Headline 1",
+    "text_body": "Body 1",
+    "media_body": null,
+    "category": "632c330345b7e97aed74fe44",
+    "date": "2022-09-22",
+    "editor": "632c398cedb282d121416e74"
+}
+*/

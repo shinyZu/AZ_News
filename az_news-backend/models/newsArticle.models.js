@@ -18,7 +18,7 @@ const newsArticleSchema = new mongoose.Schema({
     required: true,
   },
 
-  category_code: {
+  category: {
     type: String,
     required: true,
   },
@@ -28,7 +28,7 @@ const newsArticleSchema = new mongoose.Schema({
     required: true,
   },
 
-  editor_nic: {
+  editor: {
     type: String,
     required: true,
   },
