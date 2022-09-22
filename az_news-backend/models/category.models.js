@@ -3,7 +3,7 @@ const validator = require("validator");
 
 // Creating of a schema in "az_news" database
 const categorySchema = new mongoose.Schema({
-  code: {
+  category_code: {
     type: String,
     required: true,
     unique: true,
@@ -28,3 +28,11 @@ const categorySchema = new mongoose.Schema({
 
 // export categorySchema as a model
 module.exports = mongoose.model("Category", categorySchema);
+
+/* 
+Mongoose model 
+  - is a wrapper on the Mongoose schema.
+  - provides an interface to the database for creating, querying, updating, deleting records, etc.
+Mongoose schema
+  - defines the structure of the document, default values, validators, etc., 
+*/

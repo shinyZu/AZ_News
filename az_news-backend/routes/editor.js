@@ -29,7 +29,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   const body = req.body;
   const editor = new Editor({
-    nic_no: body.nic_no,
+    editor_nic: body.editor_nic,
     name: body.name,
     address: body.address,
     email: body.email,
@@ -68,7 +68,7 @@ router.put("/:id", async (req, res) => {
     if (!editor) {
       return res.status(404).send("No such Editor!");
     }
-    editor.nic_no = body.nic_no;
+    editor.editor_nic = body.editor_nic;
     editor.name = body.name;
     editor.address = body.address;
     editor.email = body.email;

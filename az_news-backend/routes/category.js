@@ -29,7 +29,7 @@ router.get("/:id", (req, res) => {
 router.post("/", async (req, res) => {
   const body = req.body;
   const category = new Category({
-    code: body.code,
+    category_code: body.category_code,
     category: body.category,
     description: body.description,
   });
@@ -66,7 +66,7 @@ router.put("/:id", async (req, res) => {
     if (!category) {
       return res.status(404).send("No such category!");
     }
-    category.code = body.code;
+    category.category_code = body.category_code;
     category.category = body.category;
     category.description = body.description;
 

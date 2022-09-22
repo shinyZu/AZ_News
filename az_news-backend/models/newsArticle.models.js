@@ -8,12 +8,17 @@ const newsArticleSchema = new mongoose.Schema({
     required: true,
   },
 
-  body: {
+  text_body: {
     type: String,
     required: true,
   },
 
-  code: {
+  media_body: {
+    type: String,
+    required: true,
+  },
+
+  category_code: {
     type: String,
     required: true,
   },
@@ -23,7 +28,7 @@ const newsArticleSchema = new mongoose.Schema({
     required: true,
   },
 
-  nic_no: {
+  editor_nic: {
     type: String,
     required: true,
   },
