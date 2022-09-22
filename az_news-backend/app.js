@@ -10,10 +10,12 @@ connection.establishConnection;
 const editor = require("./routes/editor");
 const category = require("./routes/category");
 const news = require("./routes/news");
+const gallery = require("./routes/gallery");
 
 app.use("/editor", editor);
 app.use("/category", category);
 app.use("/news", news);
+app.use("/gallery", gallery);
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello Express!!!</h1>");
