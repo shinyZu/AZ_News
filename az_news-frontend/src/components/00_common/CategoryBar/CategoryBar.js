@@ -60,6 +60,7 @@ function CategoryBar(props) {
             sm={3}
             xs={3}
             className={styles.container__viewall}
+            alignItems="center"
           >
             <Typography variant="h7" className={styles.viewall__text}>
               View All

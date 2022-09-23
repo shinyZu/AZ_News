@@ -10,6 +10,7 @@
     url("../../../assets/images/business/business1.jpeg");
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 
 .container__right {
@@ -24,6 +25,7 @@
     url("../../../assets/images/tech/tech1.jpeg");
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 
 .container__bottom {
@@ -37,6 +39,7 @@
     url("../../../assets/images/entertainment/entertainment1.jpeg");
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 
 .container__bottom_right {
@@ -45,4 +48,15 @@
     url("../../../assets/images/sports/sports2.jpeg");
   background-size: cover;
   background-position: center;
+  cursor: pointer;
+}
+
+.container__left:hover,
+.container__top:hover,
+.container__bottom_left:hover,
+.container__bottom_right:hover {
+  transition: background-position 1s;
+  /* background-position: -5px; */
+  transition: padding 1s;
+  padding: 5px;
 }

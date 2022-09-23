@@ -1,6 +1,6 @@
 .container__bar {
   /* border: 2px solid red; */
-  margin: 15px auto;
+  /* margin: 15px auto; */
 }
 
 .vertical_stripe {
@@ -18,7 +18,7 @@
 .category__text {
   /* border: 2px solid orange; */
   font-family: "Bree Serif", serif !important;
-  margin: 15px 10px auto;
+  margin: 10px 10px auto !important;
 }
 
 .container__viewall {
@@ -31,4 +31,10 @@
   color: #7f8c8d;
   font-family: "Bree Serif", serif !important;
   font-style: italic;
+  cursor: pointer;
+  margin: 15px auto !important;
+}
+
+.viewall__text:hover {
+  color: red;
 }

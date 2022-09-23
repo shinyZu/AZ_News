@@ -7,6 +7,7 @@ import TopStories from "./TopStories/TopStories";
 // import b_img from "../../assets/images/business/business1.jpeg";
 import styles from "./HomePage.module.css";
 import CategoryBar from "../../components/00_common/CategoryBar/CategoryBar";
+import BreakingNews from "./BreakingNews/BreakingNews";
 
 function HomePage() {
   return (
@@ -38,7 +39,7 @@ function HomePage() {
         >
           {/* Section for Breaking News */}
           <Grid
-            container
+            // container
             item
             xl={12}
             lg={12}
@@ -46,9 +47,10 @@ function HomePage() {
             sm={12}
             xs={12}
             className={styles.container__body_left__1}
+            justifyContent="center"
           >
             <Grid
-              container
+              // container
               item
               xl={12}
               lg={12}
@@ -68,12 +70,14 @@ function HomePage() {
               sm={12}
               xs={12}
               className={styles.container__content}
-            ></Grid>
+            >
+              <BreakingNews />
+            </Grid>
           </Grid>
 
           {/* Section for Sports */}
           <Grid
-            container
+            // container
             item
             xl={12}
             lg={12}
@@ -83,7 +87,7 @@ function HomePage() {
             className={styles.container__body_left__2}
           >
             <Grid
-              container
+              // container
               item
               xl={12}
               lg={12}
@@ -108,7 +112,7 @@ function HomePage() {
 
           {/* Section for Tech */}
           <Grid
-            container
+            // container
             item
             xl={12}
             lg={12}
@@ -118,7 +122,7 @@ function HomePage() {
             className={styles.container__body_left__3}
           >
             <Grid
-              container
+              // container
               item
               xl={12}
               lg={12}
@@ -155,7 +159,7 @@ function HomePage() {
         >
           {/* Section for Trending News */}
           <Grid
-            container
+            // container
             item
             xl={12}
             lg={12}
@@ -165,7 +169,7 @@ function HomePage() {
             className={styles.container__body_right__1}
           >
             <Grid
-              container
+              // container
               item
               xl={12}
               lg={12}
@@ -190,7 +194,7 @@ function HomePage() {
 
           {/* Section for Gallery */}
           <Grid
-            container
+            // container
             item
             xl={12}
             lg={12}
@@ -200,7 +204,7 @@ function HomePage() {
             className={styles.container__body_right__2}
           >
             <Grid
-              container
+              // container
               item
               xl={12}
               lg={12}
