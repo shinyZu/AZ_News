@@ -21,6 +21,7 @@ function TrendingNews() {
         <TrendingRow rowNo="3" />
         <TrendingRow rowNo="4" />
         <TrendingRow rowNo="5" />
+        <TrendingRow rowNo="6" />
       </Grid>
     </>
   );

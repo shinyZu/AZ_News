@@ -1,0 +1,43 @@
+.container {
+  /* border: 2px solid red; */
+}
+
+.subcontainer__1 {
+  /* border: 2px solid blue; */
+  height: 27vh;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../../../assets/images/other/gallery1.png");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.subcontainer__2 {
+  /* border: 2px solid blue; */
+  height: 27vh;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../../../assets/images/other/gallery2.jpeg");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.subcontainer__3 {
+  /* border: 2px solid blue; */
+  height: 27vh;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../../../assets/images/other/gallery3.jpeg");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.subcontainer__4 {
+  /* border: 2px solid blue; */
+  height: 27vh;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../../../assets/images/sports/sports4.jpg");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}

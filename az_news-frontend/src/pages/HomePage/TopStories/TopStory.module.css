@@ -45,7 +45,7 @@
 .container__bottom_right {
   /* border: 2px solid red; */
   background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/sports/sports2.jpeg");
+    url("../../../assets/images/sports/sports3.jpg");
   background-size: cover;
   background-position: center;
   cursor: pointer;

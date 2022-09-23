@@ -10,6 +10,7 @@ import BreakingNews from "../../components/Home/NewsSection/NewsSection";
 import Sports from "../../components/Home/NewsSection/NewsSection";
 import Tech from "../../components/Home/NewsSection/NewsSection";
 import TrendingNews from "./TrendingNews/TrendingNews";
+import Gallery from "./Gallery/Gallery";
 
 function HomePage() {
   return (
@@ -36,7 +37,7 @@ function HomePage() {
           lg={6.8}
           md={6.8}
           sm={6.8}
-          xs={6.8}
+          xs={12}
           className={styles.container__body_left}
         >
           {/* Section for Breaking News */}
@@ -160,7 +161,7 @@ function HomePage() {
           lg={4.8}
           md={4.8}
           sm={4.8}
-          xs={4.8}
+          xs={12}
           className={styles.container__body_right}
         >
           {/* Section for Trending News */}
@@ -233,7 +234,9 @@ function HomePage() {
               xs={12}
               className={styles.container__content}
               style={{ height: "90%" }}
-            ></Grid>
+            >
+              <Gallery />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

@@ -29,13 +29,13 @@
   /* border: 2px solid red; */
   font-family: "Overlock", cursive !important;
   font-weight: 800 !important;
-  font-size: 2rem !important;
+  font-size: 2.3vw !important;
 }
 
 .header_subtitle {
   font-family: "Overlock", cursive !important;
   font-weight: 800 !important;
-  font-size: 1rem !important;
+  font-size: 1.2vw !important;
 }
 
 .btn__login,
@@ -44,7 +44,7 @@
   color: black !important;
   width: 16%;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 1.3vw !important;
   font-family: "Overlock", cursive !important;
 }
 

@@ -23,13 +23,10 @@ function CardTag(props) {
           <Chip
             label={props.category}
             size="small"
+            className={styles.chip__text}
             style={{
-              width: "fit-content",
-              color: "white",
               border: `1px solid ${props.chip_color}`,
               backgroundColor: `${props.chip_color}`,
-              marginBottom: "2%",
-              borderRadius: "5px",
             }}
           />
         )}
@@ -37,7 +34,7 @@ function CardTag(props) {
         <Typography variant="h5" className={styles.tag_text}>
           {props.headline}
         </Typography>
-        <Typography variant="h7" className={styles.tag_text}>
+        <Typography variant="h7" className={styles.viewall_text}>
           {props.date}
         </Typography>
       </Grid>

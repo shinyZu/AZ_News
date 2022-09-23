@@ -18,6 +18,7 @@
 .category__text {
   /* border: 2px solid orange; */
   font-family: "Bree Serif", serif !important;
+  font-size: 1.6vw !important;
   margin: 10px 10px auto !important;
 }
 
@@ -30,6 +31,7 @@
   margin: 20px auto;
   color: #7f8c8d;
   font-family: "Bree Serif", serif !important;
+  font-size: 1vw !important;
   font-style: italic;
   cursor: pointer;
   margin: 15px auto !important;
