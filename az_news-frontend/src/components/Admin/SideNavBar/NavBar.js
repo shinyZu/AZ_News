@@ -27,11 +27,13 @@ import CategoryIcon from "@mui/icons-material/Category";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 import Dashboard from "../Dashboard/Dashboard";
 import ManageEditor from "../ManageEditor/ManageEditor";
 import ManageCategory from "../ManageCategory/ManageCategory";
 import ManageNews from "../ManageNews/ManageNews";
+import ManageGallery from "../ManageGallery/ManageGallery";
 
 import styles from "./NavBar.module.css";
 
@@ -114,6 +116,7 @@ export default function NavBar() {
   const [displayManageEditors, setDisplayManageEditors] = useState(false);
   const [displayManageCategories, setDisplayManageCategories] = useState(false);
   const [displayManageNews, setDisplayManageNews] = useState(false);
+  const [displayManageGallery, setDisplayManageGallery] = useState(false);
   const [title, setTitle] = useState("Dashboard");
 
   const handleDrawerOpen = () => {
@@ -166,6 +169,7 @@ export default function NavBar() {
             "Manage Editors",
             "Manage Categories",
             "Manage News",
+            "Manage Gallery",
           ].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -191,6 +195,7 @@ export default function NavBar() {
                         setDisplayManageEditors(false);
                         setDisplayManageCategories(false);
                         setDisplayManageNews(false);
+                        setDisplayManageGallery(false);
                       }}
                     />
                   ) : index === 1 ? (
@@ -202,6 +207,7 @@ export default function NavBar() {
                         setTitle("Manage Editors");
                         setDisplayManageCategories(false);
                         setDisplayManageNews(false);
+                        setDisplayManageGallery(false);
                       }}
                     />
                   ) : index === 2 ? (
@@ -213,9 +219,10 @@ export default function NavBar() {
                         setDisplayManageCategories(true);
                         setTitle("Manage Categories");
                         setDisplayManageNews(false);
+                        setDisplayManageGallery(false);
                       }}
                     />
-                  ) : (
+                  ) : index === 3 ? (
                     <NewspaperIcon
                       className={styles.nav__icons}
                       onClick={() => {
@@ -224,6 +231,19 @@ export default function NavBar() {
                         setDisplayManageCategories(false);
                         setDisplayManageNews(true);
                         setTitle("Manage News");
+                        setDisplayManageGallery(false);
+                      }}
+                    />
+                  ) : (
+                    <AddPhotoAlternateIcon
+                      className={styles.nav__icons}
+                      onClick={() => {
+                        setDisplayDashboard(false);
+                        setDisplayManageEditors(false);
+                        setDisplayManageCategories(false);
+                        setDisplayManageNews(false);
+                        setDisplayManageGallery(true);
+                        setTitle("Manage Gallery");
                       }}
                     />
                   )}
@@ -278,8 +298,10 @@ export default function NavBar() {
           <ManageEditor />
         ) : displayManageCategories ? (
           <ManageCategory />
-        ) : (
+        ) : displayManageNews ? (
           <ManageNews />
+        ) : (
+          <ManageGallery />
         )}
       </Box>
     </Box>

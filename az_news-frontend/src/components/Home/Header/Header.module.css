@@ -1,0 +1,66 @@
+.container__1 {
+  /* border: 2px solid blue; */
+  height: 15vh;
+  background-color: #00000013;
+  background-image: url("https://www.transparenttextures.com/patterns/nistri.png");
+}
+
+.logo__container {
+  /* border: 2px solid red; */
+  /* width: 12rem; */
+  /* height: 12rem; */
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.logo__img {
+  /* border: 2px solid red; */
+  /* width: 80%; */
+  width: 14vh;
+  height: 13vh;
+  /* width: 8vw; */
+  /* height: 8vw; */
+  border-radius: 50%;
+  margin: 5px 0px 5px 5px;
+  margin: auto;
+}
+
+.container__2,
+.container__3 {
+  height: 15vh;
+}
+
+.header_title {
+  /* border: 2px solid red; */
+  font-family: "Overlock", cursive !important;
+  font-weight: 800 !important;
+  /* width: 200px; */
+  font-size: 2rem !important;
+}
+
+.header_subtitle {
+  font-family: "Overlock", cursive !important;
+  font-weight: 800 !important;
+  font-size: 1rem !important;
+}
+
+.btn__login,
+.btn__signIn {
+  /* background-color: #4169a9 !important; */
+  background-color: transparent;
+  /* background-color: #e74c3c !important; */
+  color: black !important;
+  /* padding: 15px; */
+  width: 16%;
+  border-radius: 5px;
+  /* border-color: #e74c3c !important; */
+  font-size: 0.8rem;
+  font-family: "Overlock", cursive !important;
+  /* font-family: "Bree Serif", serif !important; */
+}
+
+.btn__login:hover,
+.btn__signIn:hover {
+  background-color: #e74c3c !important;
+  color: white !important;
+}
