@@ -19,18 +19,21 @@ function CardTag(props) {
         direction="column"
         justifyContent="flex-end"
       >
-        <Chip
-          label={props.category}
-          size="small"
-          style={{
-            width: "fit-content",
-            color: "white",
-            border: `1px solid ${props.chip_color}`,
-            backgroundColor: `${props.chip_color}`,
-            marginBottom: "2%",
-            borderRadius: "5px",
-          }}
-        />
+        {props.displayStatus && (
+          <Chip
+            label={props.category}
+            size="small"
+            style={{
+              width: "fit-content",
+              color: "white",
+              border: `1px solid ${props.chip_color}`,
+              backgroundColor: `${props.chip_color}`,
+              marginBottom: "2%",
+              borderRadius: "5px",
+            }}
+          />
+        )}
+
         <Typography variant="h5" className={styles.tag_text}>
           {props.headline}
         </Typography>

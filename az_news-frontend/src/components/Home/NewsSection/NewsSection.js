@@ -1,9 +1,9 @@
 import Grid from "@mui/material/Grid";
 import CardTag from "../../../components/00_common/CardTag/CardTag";
 
-import styles from "./BreakingNews.module.css";
+import styles from "./NewsSection.module.css";
 
-function BreakingNews() {
+function NewsSection(props) {
   return (
     <>
       <Grid
@@ -28,6 +28,7 @@ function BreakingNews() {
           className={styles.container_left}
         >
           <CardTag
+            displayStatus={props.category === "BreakingNews" ? true : false}
             category="Business"
             headline="Headline"
             date="Jan 01"
@@ -59,6 +60,7 @@ function BreakingNews() {
             className={styles.container_right__1}
           >
             <CardTag
+              displayStatus={props.category === "BreakingNews" ? true : false}
               category="Sports"
               headline="Headline"
               date="Jan 01"
@@ -76,6 +78,7 @@ function BreakingNews() {
             className={styles.container_right__2}
           >
             <CardTag
+              displayStatus={props.category === "BreakingNews" ? true : false}
               category="Entertainment"
               headline="Headline"
               date="Jan 01"
@@ -93,6 +96,7 @@ function BreakingNews() {
             className={styles.container_right__3}
           >
             <CardTag
+              displayStatus={props.category === "BreakingNews" ? true : false}
               category="International"
               headline="Headline"
               date="Jan 01"
@@ -105,4 +109,4 @@ function BreakingNews() {
   );
 }
 
-export default BreakingNews;
+export default NewsSection;

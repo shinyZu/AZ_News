@@ -3,7 +3,7 @@ import CardTag from "../../../components/00_common/CardTag/CardTag";
 
 import styles from "../TopStories/TopStory.module.css";
 
-function TopStories() {
+function TopStories(props) {
   return (
     <>
       <Grid
@@ -29,6 +29,7 @@ function TopStories() {
         >
           {/* <img id={1} className={styles.card__img} /> */}
           <CardTag
+            displayStatus={true}
             category="Business"
             headline="Headline"
             date="Jan 01"
@@ -57,6 +58,7 @@ function TopStories() {
             className={styles.container__top}
           >
             <CardTag
+              displayStatus={true}
               category="Tech"
               headline="Headline"
               date="Jan 01"
@@ -85,6 +87,7 @@ function TopStories() {
               className={styles.container__bottom_left}
             >
               <CardTag
+                displayStatus={true}
                 category="Entertainment"
                 headline="Headline"
                 date="Jan 01"
@@ -102,6 +105,7 @@ function TopStories() {
               className={styles.container__bottom_right}
             >
               <CardTag
+                displayStatus={true}
                 category="Sports"
                 headline="Headline"
                 date="Jan 01"

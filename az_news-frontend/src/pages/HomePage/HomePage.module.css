@@ -5,27 +5,27 @@
 
 /* --------------------------Left Column----------------------------- */
 
-.container__body_left {
-  /* border: 2px solid green; */
+/* .container__body_left {
+  border: 2px solid green;
 }
 
 .container__body_left__1 {
-  /* border: 2px solid #8e44ad; */
+  border: 2px solid #8e44ad;
 }
 
 .container__body_left__2 {
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
 }
 
 .container__body_left__3 {
-  /* border: 2px solid red; */
-}
+  border: 2px solid red;
+} */
 
 /* --------------------------Right Column----------------------------- */
 
-.container__body_right {
-  /* border: 2px solid green; */
-}
+/* .container__body_right {
+  border: 2px solid green;
+} */
 
 .container__body_right__1 {
   /* border: 2px solid blue; */
@@ -39,14 +39,12 @@
 
 /* --------------------------Category Bar----------------------------- */
 
-.container__category__bar {
-  /* border: 2px solid rgb(2, 236, 119); */
-  /* height: 20%; */
-}
+/* .container__category__bar {
+  border: 2px solid rgb(2, 236, 119);
+} */
 
 .container__content {
-  border: 2px solid black;
-  /* height: 80%; */
+  /* border: 2px solid black; */
   margin: 20px 0 !important;
   height: 50vh;
 }

@@ -4,17 +4,18 @@ import Header from "../../components/Home/Header/Header";
 import NavBar from "../../components/Home/NavBar/NavBar";
 import TopStories from "./TopStories/TopStories";
 
-// import b_img from "../../assets/images/business/business1.jpeg";
 import styles from "./HomePage.module.css";
 import CategoryBar from "../../components/00_common/CategoryBar/CategoryBar";
-import BreakingNews from "./BreakingNews/BreakingNews";
+import BreakingNews from "../../components/Home/NewsSection/NewsSection";
+import Sports from "../../components/Home/NewsSection/NewsSection";
+import Tech from "../../components/Home/NewsSection/NewsSection";
 
 function HomePage() {
   return (
     <>
       <Header />
       <NavBar />
-      <TopStories />
+      <TopStories category="TopStory" />
 
       <Grid
         container
@@ -71,7 +72,7 @@ function HomePage() {
               xs={12}
               className={styles.container__content}
             >
-              <BreakingNews />
+              <BreakingNews category="BreakingNews" />
             </Grid>
           </Grid>
 
@@ -107,12 +108,14 @@ function HomePage() {
               sm={12}
               xs={12}
               className={styles.container__content}
-            ></Grid>
+            >
+              <Sports category="Sports" />
+            </Grid>
           </Grid>
 
           {/* Section for Tech */}
           <Grid
-            // container
+            container
             item
             xl={12}
             lg={12}
@@ -122,7 +125,7 @@ function HomePage() {
             className={styles.container__body_left__3}
           >
             <Grid
-              // container
+              container
               item
               xl={12}
               lg={12}
@@ -142,7 +145,9 @@ function HomePage() {
               sm={12}
               xs={12}
               className={styles.container__content}
-            ></Grid>
+            >
+              <Tech category="Tech" />
+            </Grid>
           </Grid>
         </Grid>
 
@@ -159,7 +164,7 @@ function HomePage() {
         >
           {/* Section for Trending News */}
           <Grid
-            // container
+            container
             item
             xl={12}
             lg={12}
@@ -169,7 +174,7 @@ function HomePage() {
             className={styles.container__body_right__1}
           >
             <Grid
-              // container
+              container
               item
               xl={12}
               lg={12}
@@ -194,7 +199,7 @@ function HomePage() {
 
           {/* Section for Gallery */}
           <Grid
-            // container
+            container
             item
             xl={12}
             lg={12}
@@ -204,7 +209,7 @@ function HomePage() {
             className={styles.container__body_right__2}
           >
             <Grid
-              // container
+              container
               item
               xl={12}
               lg={12}
