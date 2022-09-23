@@ -4,7 +4,7 @@ import NavBar from "../../components/Home/NavBar/NavBar";
 
 import { withStyles } from "@mui/styles";
 
-function HomePage() {
+function GalleryPage() {
   return (
     <>
       <Header />
@@ -12,6 +12,5 @@ function HomePage() {
     </>
   );
 }
-
-export default HomePage;
+export default GalleryPage;
 // export default withStyles(styleSheet)(HomePage);
