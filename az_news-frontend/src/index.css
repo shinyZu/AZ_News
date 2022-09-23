@@ -3,9 +3,9 @@ html {
 }
 
 body {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 65%;
-  height: 150vh;
+  /* height: 150vh; */
   margin: auto;
 
   /* font-family: "Acme", sans-serif; */

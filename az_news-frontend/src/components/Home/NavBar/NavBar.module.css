@@ -7,7 +7,8 @@
 .nav__text {
   color: black;
   font-weight: 700 !important;
-  font-family: "Acme", sans-serif !important;
+  font-family: "Bree Serif", serif !important;
+
   /* font-family: "Overlock", cursive !important; */
   font-size: 0.975rem !important;
   text-decoration: none;

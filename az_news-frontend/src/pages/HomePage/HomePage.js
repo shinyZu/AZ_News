@@ -1,19 +1,19 @@
-import Grid from "@mui/material/Grid";
-
 import React from "react";
+import Grid from "@mui/material/Grid";
 import Header from "../../components/Home/Header/Header";
 import NavBar from "../../components/Home/NavBar/NavBar";
+import TopStories from "./TopStories/TopStories";
 
-import b_img from "../../assets/images/business/business1.jpeg";
-
-import styles from "./TopStory.module.css";
-import CardTag from "../../components/00_common/CardTag/CardTag";
+// import b_img from "../../assets/images/business/business1.jpeg";
+import styles from "./HomePage.module.css";
+import CategoryBar from "../../components/00_common/CategoryBar/CategoryBar";
 
 function HomePage() {
   return (
     <>
       <Header />
       <NavBar />
+      <TopStories />
 
       <Grid
         container
@@ -22,39 +22,138 @@ function HomePage() {
         md={12}
         sm={12}
         xs={12}
-        className={styles.container__1}
+        className={styles.container__body}
         justifyContent="space-between"
-        alignItems="center"
       >
+        {/* --------------------------------Content of Left Column ----------------------*/}
         <Grid
           container
           item
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
-          xs={5.9}
-          className={styles.container__left}
+          xl={6.8}
+          lg={6.8}
+          md={6.8}
+          sm={6.8}
+          xs={6.8}
+          className={styles.container__body_left}
         >
-          {/* <img id={1} className={styles.card__img} /> */}
-          <CardTag
-            category="Business"
-            headline="Headline"
-            date="Jan 01"
-            chip_color="#2980b9"
-          />
+          {/* Section for Breaking News */}
+          <Grid
+            container
+            item
+            xl={12}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            className={styles.container__body_left__1}
+          >
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__category__bar}
+            >
+              <CategoryBar category="Breaking News" bg_color="#e74c3c" />
+            </Grid>
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__content}
+            ></Grid>
+          </Grid>
+
+          {/* Section for Sports */}
+          <Grid
+            container
+            item
+            xl={12}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            className={styles.container__body_left__2}
+          >
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__category__bar}
+            >
+              <CategoryBar category="Sports" bg_color="#f1c40f" />
+            </Grid>
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__content}
+            ></Grid>
+          </Grid>
+
+          {/* Section for Tech */}
+          <Grid
+            container
+            item
+            xl={12}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            className={styles.container__body_left__3}
+          >
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__category__bar}
+            >
+              <CategoryBar category="Technology" bg_color="#8e44ad" />
+            </Grid>
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__content}
+            ></Grid>
+          </Grid>
         </Grid>
+
+        {/* ----------------------Content of Right Column ---------------------------*/}
         <Grid
           container
-          // item
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
-          xs={5.9}
-          className={styles.container__right}
-          alignContent="space-between"
+          item
+          xl={4.8}
+          lg={4.8}
+          md={4.8}
+          sm={4.8}
+          xs={4.8}
+          className={styles.container__body_right}
         >
+          {/* Section for Trending News */}
           <Grid
             container
             item
@@ -63,15 +162,33 @@ function HomePage() {
             md={12}
             sm={12}
             xs={12}
-            className={styles.container__top}
+            className={styles.container__body_right__1}
           >
-            <CardTag
-              category="Tech"
-              headline="Headline"
-              date="Jan 01"
-              chip_color="#8e44ad"
-            />
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__category__bar}
+            >
+              <CategoryBar category="Trending" bg_color="#e67e22" />
+            </Grid>
+            <Grid
+              container
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__content}
+            ></Grid>
           </Grid>
+
+          {/* Section for Gallery */}
           <Grid
             container
             item
@@ -80,43 +197,31 @@ function HomePage() {
             md={12}
             sm={12}
             xs={12}
-            className={styles.container__bottom}
-            justifyContent="space-between"
+            className={styles.container__body_right__2}
           >
             <Grid
               container
               item
-              xl={5.9}
-              lg={5.9}
-              md={5.9}
-              sm={5.9}
-              xs={5.9}
-              className={styles.container__bottom_left}
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__category__bar}
             >
-              <CardTag
-                category="Entertainment"
-                headline="Headline"
-                date="Jan 01"
-                chip_color="#16a085"
-              />
+              <CategoryBar category="Gallery" bg_color="#16a085" />
             </Grid>
             <Grid
               container
               item
-              xl={5.9}
-              lg={5.9}
-              md={5.9}
-              sm={5.9}
-              xs={5.9}
-              className={styles.container__bottom_right}
-            >
-              <CardTag
-                category="Sports"
-                headline="Headline"
-                date="Jan 01"
-                chip_color="#f1c40f"
-              />
-            </Grid>
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              className={styles.container__content}
+              style={{ height: "90%" }}
+            ></Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -125,4 +230,3 @@ function HomePage() {
 }
 
 export default HomePage;
-// export default withStyles(styleSheet)(HomePage);
