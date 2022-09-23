@@ -1,0 +1,26 @@
+.container_row {
+  /* border: 2px solid blue; */
+  height: 15%;
+}
+
+.container_number {
+  /* border: 2px solid green; */
+}
+
+.number__style {
+  /* border: 2px solid orange; */
+  margin: 5px auto;
+  padding: 0px 8px;
+  background-color: #ff7675;
+  color: white;
+  border-radius: 3px;
+}
+
+.container_headline {
+  /* border: 2px solid green; */
+  padding: 0px 5px;
+}
+
+.headline__text {
+  font-family: "Bree Serif", serif !important;
+}

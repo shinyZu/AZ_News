@@ -9,6 +9,7 @@ import CategoryBar from "../../components/00_common/CategoryBar/CategoryBar";
 import BreakingNews from "../../components/Home/NewsSection/NewsSection";
 import Sports from "../../components/Home/NewsSection/NewsSection";
 import Tech from "../../components/Home/NewsSection/NewsSection";
+import TrendingNews from "./TrendingNews/TrendingNews";
 
 function HomePage() {
   return (
@@ -194,7 +195,9 @@ function HomePage() {
               sm={12}
               xs={12}
               className={styles.container__content}
-            ></Grid>
+            >
+              <TrendingNews />
+            </Grid>
           </Grid>
 
           {/* Section for Gallery */}

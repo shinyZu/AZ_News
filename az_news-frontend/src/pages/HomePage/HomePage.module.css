@@ -44,7 +44,7 @@
 } */
 
 .container__content {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   margin: 20px 0 !important;
   height: 50vh;
 }
