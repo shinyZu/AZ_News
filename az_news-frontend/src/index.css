@@ -58,7 +58,10 @@ font-family: 'Roboto Condensed', sans-serif;
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root,
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input,
 .css-1wc848c-MuiFormHelperText-root,
-textarea {
+textarea,
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input,
+.css-k4qjio-MuiFormHelperText-root.Mui-error,
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
   font-family: "Bree Serif", serif !important;
   /* font-family: "Open Sans", sans-serif !important; */
 }

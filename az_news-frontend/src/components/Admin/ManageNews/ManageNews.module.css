@@ -1,0 +1,81 @@
+.container {
+  /* border: 2px solid red; */
+  height: 80vh;
+}
+
+.container__left,
+.container__right
+/* .container__date__editor */ {
+  /* border: 2px solid blue; */
+}
+
+.container__upload__1 {
+  /* border: 2px solid red; */
+  height: 10%;
+}
+
+.btn__browse {
+  background-color: #16a085;
+  color: white;
+  width: 15% !important;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: "Bree Serif", serif !important;
+}
+
+.container__upload__2 {
+  /* border: 2px solid red; */
+  margin-top: 2vh;
+}
+
+.container__upload__box {
+  /* border: 2px solid blue; */
+  background-color: #ccc;
+  height: 50vh;
+}
+
+/* .container__btn {
+  border: 2px solid blue;
+} */
+
+.btn__cancel,
+.btn__delete,
+.btn__preview,
+.btn__update,
+.btn__publish {
+  color: white;
+  width: 18%;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: "Bree Serif", serif !important;
+}
+
+.btn__cancel {
+  background-color: #95a5a6;
+}
+
+.btn__publish {
+  background-color: #16a085;
+}
+
+.btn__delete {
+  background-color: #e74c3c;
+}
+
+.btn__preview {
+  background-color: #e67e22;
+}
+
+.btn__update {
+  background-color: #2980b9;
+}
+/* 
+.btn__preview,
+.btn__update,
+.btn__publish {
+  background-color: #16a085;
+} */
