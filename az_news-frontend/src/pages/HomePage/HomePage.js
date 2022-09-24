@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Header from "../../components/Home/Header/Header";
 import NavBar from "../../components/Home/NavBar/NavBar";
@@ -15,6 +15,10 @@ import Footer from "../../components/Home/Footer/Footer";
 import styles from "./HomePage.module.css";
 
 function HomePage() {
+  useEffect(() => {
+    document.body.style.width = "65%";
+  });
+
   return (
     <>
       <Header />

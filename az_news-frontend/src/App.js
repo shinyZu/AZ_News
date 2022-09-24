@@ -5,6 +5,9 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import Login from "./pages/Login/Login";
+import AdminDashbaord from "./pages/Admin/Dashboard";
+import NotFound from "./pages/Session/NotFound";
+import RequireAuth from "./pages/Session/RequireAuth";
 
 function App() {
   return (
@@ -14,8 +17,18 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Login />} />
+
         <Route path="/news" element={<NewsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <AdminDashbaord />
+            </RequireAuth>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

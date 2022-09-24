@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -119,6 +119,12 @@ export default function NavBar() {
   const [displayManageGallery, setDisplayManageGallery] = useState(false);
   const [title, setTitle] = useState("Dashboard");
 
+  useEffect(() => {
+    document.body.style.width = "100%";
+  });
+
+  const navigate = useNavigate();
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -150,7 +156,11 @@ export default function NavBar() {
         </Toolbar>
       </AppBar>
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        style={{ border: "2px solid green" }}
+      >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -281,7 +291,17 @@ export default function NavBar() {
                       justifyContent: "center",
                     }}
                   >
-                    {<LogoutIcon className={styles.nav__icons} />}
+                    {
+                      <LogoutIcon
+                        className={styles.nav__icons}
+                        onClick={() => {
+                          console.log(localStorage.length);
+                          localStorage.clear();
+                          console.log(localStorage.length);
+                          navigate("/home");
+                        }}
+                      />
+                    }
                   </ListItemIcon>
                   <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
