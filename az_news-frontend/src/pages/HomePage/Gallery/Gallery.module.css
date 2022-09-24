@@ -2,37 +2,13 @@
   border: 2px solid red;
 } */
 
-.subcontainer__1 {
-  /* border: 2px solid blue; */
-  height: 24%;
-  background-image: url("../../../assets/images/other/gallery1.png");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
-.subcontainer__2 {
-  /* border: 2px solid blue; */
-  height: 24%;
-  background-image: url("../../../assets/images/other/gallery2.jpeg");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
-.subcontainer__3 {
-  /* border: 2px solid blue; */
-  height: 24%;
-  background-image: url("../../../assets/images/entertainment/entertainment1.jpeg");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
+.subcontainer__1,
+.subcontainer__2,
+.subcontainer__3,
 .subcontainer__4 {
   /* border: 2px solid blue; */
   height: 24%;
-  background-image: url("../../../assets/images/sports/sports4.jpg");
+  /* background-image: url("../../../assets/images/other/gallery1.png"); */
   background-size: cover;
   background-position: center;
   cursor: pointer;

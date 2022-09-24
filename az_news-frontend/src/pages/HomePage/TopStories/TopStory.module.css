@@ -6,8 +6,8 @@
 .container__left {
   /* border: 2px solid red; */
   height: 50vh;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/business/business1.jpeg");
+  /* background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../../../assets/images/business/business1.jpeg"); */
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -21,8 +21,6 @@
 .container__top {
   /* border: 2px solid red; */
   height: 24vh;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/tech/tech1.jpeg");
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -35,8 +33,6 @@
 
 .container__bottom_left {
   /* border: 2px solid red; */
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/entertainment/entertainment1.jpeg");
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -44,8 +40,6 @@
 
 .container__bottom_right {
   /* border: 2px solid red; */
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/sports/sports3.jpg");
   background-size: cover;
   background-position: center;
   cursor: pointer;

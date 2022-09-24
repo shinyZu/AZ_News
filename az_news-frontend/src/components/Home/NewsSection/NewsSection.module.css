@@ -5,8 +5,6 @@
 .container_left {
   /* border: 2px solid blue; */
   height: 100%;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/business/business2.jpeg");
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -17,31 +15,11 @@
   height: 100%;
 }
 
-.container_right__1 {
+.container_right__1,
+.container_right__2,
+.container_right__3 {
   /* border: 2px solid deeppink; */
   height: 32%;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/sports/sports1.jpeg");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
-.container_right__2 {
-  /* border: 2px solid orange; */
-  height: 32%;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/business/business3.jpeg");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
-.container_right__3 {
-  /* border: 2px solid red; */
-  height: 32%;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../../../assets/images/other/queen.jpg");
   background-size: cover;
   background-position: center;
   cursor: pointer;

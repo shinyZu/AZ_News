@@ -15,7 +15,7 @@ import left__bg3 from "../../assets/images/sports/sports2.jpeg";
 import left__bg4 from "../../assets/images/tech/tech2.png";
 
 import right__bg1 from "../../assets/images/sports/sports1.jpeg";
-import right__bg2 from "../../assets/images/business/business3.jpeg";
+import right__bg2 from "../../assets/images/entertainment/entertainment2.jpeg";
 import right__bg3 from "../../assets/images/entertainment/entertainment1.jpeg";
 import right__bg4 from "../../assets/images/other/health1.jpeg";
 
