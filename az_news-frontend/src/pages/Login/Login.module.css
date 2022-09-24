@@ -1,0 +1,75 @@
+.container {
+  /* border: 2px solid red; */
+  height: 80vh;
+  margin: 10vh auto;
+}
+
+.container__left,
+.container__right {
+  /* border: 2px solid blue; */
+  border-radius: 20px;
+  height: 100%;
+}
+
+.container__right {
+  background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png") !important;
+}
+
+.container__closeBtn {
+  /* border: 2px solid black; */
+  height: 8%;
+  cursor: pointer;
+}
+
+.closeBtn {
+  z-index: 3;
+}
+
+.closeBtn:hover {
+  font-size: x-large !important;
+}
+
+.container__2 {
+  /* border: 2px solid green; */
+  height: 92%;
+}
+
+.container__logo {
+  /* border: 2px solid blue; */
+  height: 25vh;
+}
+
+.container__form {
+  /* border: 2px solid red; */
+  height: 70%;
+}
+
+/* .subcontainer__form {
+  border: 2px solid blue;
+} */
+
+.txt_username {
+  /* border: 2px solid green; */
+  font-family: "Bree Serif", serif !important;
+}
+
+.btn_login_signIn {
+  /* background-color: #4169a9; */
+  /* background-color: #55a3ba; */
+  background-color: #c48863;
+  color: white;
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5vh;
+  cursor: pointer;
+  font-family: "Bree Serif", serif !important;
+  /* font-size: 1.3vw !important; */
+}
+
+.btn_login_signIn:hover {
+  /* background-color: #273c75; */
+  /* background-color: #3f91ac; */
+  background-color: #955d4f;
+}

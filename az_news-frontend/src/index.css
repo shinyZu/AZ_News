@@ -1,16 +1,16 @@
 html {
-  font-family: "Bree Serif", serif;
+  font-family: "Bree Serif", serif !important;
   /* font-size: 0.8rem; */
 }
 
 body {
   /* border: 2px solid red; */
-  width: 65%;
   /* height: 150vh; */
+  width: 65%;
   margin: auto;
 
   /* font-family: "Acme", sans-serif; */
-  font-family: "Bree Serif", serif;
+  font-family: "Bree Serif", serif !important;
   /* font-family: "Open Sans", sans-serif; */
   /* font-family: "Overlock", cursive; */
   /* font-family: "Roboto Condensed", sans-serif; */

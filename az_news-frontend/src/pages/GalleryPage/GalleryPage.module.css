@@ -19,11 +19,11 @@
   height: 25vh;
 }
 
-.container__top__left,
+/* .container__top__left,
 .container__top__middle,
 .container__top__right {
-  /* border: 2px solid blue; */
-}
+  border: 2px solid blue;
+} */
 
 .container__top__left__1,
 .container__top__right__2 {

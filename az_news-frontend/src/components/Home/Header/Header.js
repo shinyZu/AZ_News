@@ -1,9 +1,12 @@
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import styles from "./Header.module.css";
 import logo from "../../../assets/images/logo4.jpg";
+import Login from "../../../pages/Login/Login";
 
 function Header() {
   return (
@@ -86,24 +89,41 @@ function Header() {
               sm={12}
               xs={12}
               // style={{ border: "2px solid blue" }}
-              // className={styles.container__5}
               justifyContent="end"
               alignItems="center"
             >
-              <Button
-                // variant="contained"
-                style={{ marginRight: "5px" }}
-                className={styles.btn__login}
+              <Grid
+                container
+                item
+                xl={1.5}
+                lg={1.5}
+                md={1.5}
+                sm={2}
+                xs={2}
+                // style={{ border: "2px solid blue" }}
+                justifyContent="flex-end"
+                // alignItems="end"
               >
-                Login
-              </Button>
-              <Button
-                // variant="outlined"
-                style={{ marginRight: "5px" }}
-                className={styles.btn__signIn}
+                <NavLink to="/login" className={styles.nav__text}>
+                  <Button className={styles.btn__login}>Login</Button>
+                </NavLink>
+              </Grid>
+
+              <Grid
+                container
+                item
+                xl={2}
+                lg={2}
+                md={2}
+                sm={3}
+                xs={3}
+                justifyContent="end"
+                alignItems="center"
               >
-                Sign In
-              </Button>
+                <NavLink to="/register" className={styles.nav__text}>
+                  <Button className={styles.btn__signIn}>Sign In</Button>
+                </NavLink>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

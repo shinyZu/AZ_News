@@ -4,7 +4,6 @@ import Header from "../../components/Home/Header/Header";
 import NavBar from "../../components/Home/NavBar/NavBar";
 import TopStories from "./TopStories/TopStories";
 
-import styles from "./HomePage.module.css";
 import CategoryBar from "../../components/00_common/CategoryBar/CategoryBar";
 import BreakingNews from "../../components/Home/NewsSection/NewsSection";
 import Sports from "../../components/Home/NewsSection/NewsSection";
@@ -12,6 +11,8 @@ import Tech from "../../components/Home/NewsSection/NewsSection";
 import TrendingNews from "./TrendingNews/TrendingNews";
 import Gallery from "./Gallery/Gallery";
 import Footer from "../../components/Home/Footer/Footer";
+
+import styles from "./HomePage.module.css";
 
 function HomePage() {
   return (
