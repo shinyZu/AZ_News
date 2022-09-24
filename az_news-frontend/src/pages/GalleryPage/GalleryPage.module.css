@@ -1,0 +1,55 @@
+.body {
+  /* border: 2px solid red; */
+  height: 100vh;
+  margin-top: 5vh;
+}
+
+.container {
+  /* border: 2px solid black; */
+  height: 78vh;
+}
+
+.container__1 {
+  /* border: 2px solid yellowgreen; */
+  height: 50vh;
+}
+
+.container__2 {
+  /* border: 2px solid red; */
+  height: 25vh;
+}
+
+.container__top__left,
+.container__top__middle,
+.container__top__right {
+  /* border: 2px solid blue; */
+}
+
+.container__top__left__1,
+.container__top__right__2 {
+  /* border: 2px solid red; */
+  height: 39%;
+}
+
+.container__top__left__2,
+.container__top__right__1 {
+  /* border: 2px solid red; */
+  height: 59%;
+}
+
+/* .container__2__left,
+.container__2__right {
+  border: 2px solid blue;
+} */
+
+.container__top__middle,
+.container__top__left__1,
+.container__top__right__2,
+.container__top__left__2,
+.container__top__right__1,
+.container__2__left,
+.container__2__right {
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
