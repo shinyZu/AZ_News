@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+var cors = require("cors");
 const router = express.Router();
 // app.use(express.json());
 
 const Editor = require("../models/editor.models");
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   try {
     const editors = await Editor.find();
     res.json(editors);
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", cors(), async (req, res) => {
   Editor.findById(req.params.id, (err, editor) => {
     if (err) {
       return res.status(500).send(err);
@@ -26,7 +27,7 @@ router.get("/:id", async (req, res) => {
   });
 });
 
-router.post("/", async (req, res) => {
+router.post("/", cors(), async (req, res) => {
   const body = req.body;
   const editor = new Editor({
     editor_nic: body.editor_nic,
@@ -42,28 +43,30 @@ router.post("/", async (req, res) => {
       // console.log(err);
       // console.log(err.keyPattern.nic_no);
       if (err.errors) {
-        return res.status(500).send(err.message.split(":")[2]);
+        return res.status(500).json({ message: err.message.split(":")[2] });
       }
 
       if (err.keyPattern.contact_no == 1) {
-        return res.status(404).send("Duplicate Contact No!");
+        return res.status(404).json({ message: "Duplicate Contact No!" });
       } else if (err.keyPattern.email == 1) {
-        return res.status(404).send("An Editor with this Email already exist!");
+        return res
+          .status(404)
+          .json({ message: "An Editor with this Email already exist!" });
       } else if (err.keyPattern.editor_nic == 1) {
-        return res.status(404).send("Duplicate NIC No!");
+        return res.status(404).json({ message: "Duplicate NIC No!" });
       } else if (!result) {
         return res
           .status(404)
-          .send("Couldn't save the Editor. Please Try Again!");
+          .json({ message: "Couldn't save the Editor. Please Try Again!" });
       } else if (result) {
-        res.send(result);
+        res.json(result);
       }
     }
-    res.status(201).send("Editor Saved Succesfully!!!");
+    res.status(201).json({ message: "Editor Saved Succesfully!!!" });
   });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", cors(), async (req, res) => {
   const body = req.body;
   Editor.findById(req.params.id, (err, editor) => {
     if (err) {
@@ -90,7 +93,7 @@ router.put("/:id", async (req, res) => {
   });
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", cors(), async (req, res) => {
   Editor.findById(req.params.id, (err, editor) => {
     if (err) {
       return res.status(500).send(err);

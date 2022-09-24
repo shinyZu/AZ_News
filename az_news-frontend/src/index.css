@@ -51,9 +51,9 @@ font-family: 'Roboto Condensed', sans-serif;
   background-color: #ecf0f1;
 }
 
-.css-8u39c-MuiTypography-root,
+/* .css-8u39c-MuiTypography-root,
 .css-10hburv-MuiTypography-root,
-.css-ag7rrr-MuiTypography-root,
+.css-ag7rrr-MuiTypography-root, */
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root,
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input,
@@ -61,7 +61,17 @@ font-family: 'Roboto Condensed', sans-serif;
 textarea,
 .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input,
 .css-k4qjio-MuiFormHelperText-root.Mui-error,
-.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input,
+.MuiTypography-root {
   font-family: "Bree Serif", serif !important;
   /* font-family: "Open Sans", sans-serif !important; */
+}
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  border-color: green !important;
+  outline: none !important;
+}
+
+.css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root {
+  border-color: green !important;
 }

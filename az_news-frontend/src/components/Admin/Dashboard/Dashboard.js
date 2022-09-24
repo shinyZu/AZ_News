@@ -1,37 +1,45 @@
+import { useState } from "react";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import Card from "../../00_common/Card/Card";
+
+import styles from "./Dashboard.module.css";
 
 function Dashboard() {
+  const [card1, setCard1] = useState("24");
+  const [card2, setCard2] = useState("15");
+  const [card3, setCard3] = useState("12K");
   return (
     <>
-      <h1>Dashboard</h1>
-      <Typography paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-        non enim praesent elementum facilisis leo vel. Risus at ultrices mi
-        tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non
-        tellus. Convallis convallis tellus id interdum velit laoreet id donec
-        ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-        suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod
-        quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
-        proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-        tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-        varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-        Lorem donec massa sapien faucibus et molestie ac.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-        integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-        lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-        Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-        vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-        accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-        Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-        senectus et. Adipiscing elit duis tristique sollicitudin nibh sit.
-        Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra
-        maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
-        aliquam ultrices sagittis orci a.
-      </Typography>
+      <Grid
+        container
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+        className={styles.container}
+        justifyContent="center"
+        alignItems="center"
+        style={{ marginTop: "8%" }}
+      >
+        <Grid
+          container
+          xl={11}
+          lg={11}
+          md={12}
+          sm={12}
+          xs={12}
+          // justifyContent="space-between"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Card cardNo={card1} cardTitle="Editors" color="#f1c40f" />
+          <Card cardNo={card2} cardTitle="Categories" color="#9b59b6" />
+          <Card cardNo={card3} cardTitle="Followers" color="#2ecc71" />
+        </Grid>
+      </Grid>
     </>
   );
 }

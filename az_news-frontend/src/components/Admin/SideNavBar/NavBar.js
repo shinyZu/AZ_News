@@ -255,7 +255,7 @@ export default function NavBar() {
                         setDisplayManageCategories(false);
                         setDisplayManageNews(false);
                         setDisplayManageGallery(true);
-                        setTitle("Manage Gallery");
+                        // setTitle("Manage Gallery");
                       }}
                     />
                   )}
@@ -320,11 +320,12 @@ export default function NavBar() {
           <ManageEditor />
         ) : displayManageCategories ? (
           <ManageCategory />
-        ) : displayManageNews ? (
-          <ManageNews />
         ) : (
-          <ManageGallery />
+          <ManageNews />
         )}
+        {/* : (
+          <ManageGallery />
+        ) */}
       </Box>
     </Box>
   );

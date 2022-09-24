@@ -6,7 +6,9 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { AdapterDateFns } from "@mui/x-date-pickers-pro/AdapterDateFns";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import styles from "./ManageNews.module.css";
@@ -122,7 +124,7 @@ function ManageNews() {
               sm={10}
               xs={10}
               justifyContent="space-between"
-              className={styles.container__date__editor}
+              // className={styles.container__date__editor}
               style={{ height: "fit-content" }}
             >
               <Grid
@@ -137,9 +139,10 @@ function ManageNews() {
               >
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DatePicker
+                    className="text-center border-l-4 border-red-500  w-full p-3 rounded text-sm  outline-none  focus:ring-0 bg-transparent"
                     // label="Date"
                     value={newsFormData.date}
-                    inputFormat="dd/MM/yyyy"
+                    // inputFormat="dd/MM/yyyy"
                     style={{ width: "80%" }}
                     onChange={(newValue) => {
                       setDate(newValue);

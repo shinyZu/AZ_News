@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
+import MySnackBar from "../../00_common/SnackBar/MySnackBar";
 
 import styles from "./ManageEditor.module.css";
+import EditorService from "../../../services/EditorService";
+import ConfirmDialog from "../../00_common/ConfirmDialog/ConfirmDialog";
 
 function ManageEditor() {
+  const [openAlert, setOpenAlert] = useState({
+    open: "",
+    alert: "",
+    severity: "",
+    variant: "",
+  });
+
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: "",
+    subTitle: "",
+    confirmBtnStyle: {},
+    action: "",
+  });
+
   const [editorFormData, setEditorFormData] = useState({
     editor_nic: "",
     name: "",
@@ -20,6 +38,65 @@ function ManageEditor() {
     category: "",
     description: "",
   });
+
+  const clearEditorForm = () => {
+    setEditorFormData({
+      editor_nic: "",
+      name: "",
+      address: "",
+      email: "",
+      contact_no: "",
+    });
+  };
+
+  const clearCategoryForm = () => {
+    setCategoryFormData({ category_code: "", category: "", description: "" });
+  };
+
+  // useEffect(() => {
+  //   getAllEditors();
+  // });
+
+  // const getAllEditors = async () => {
+  //   let res = await EditorService.getAll();
+  //   console.log(res);
+  // };
+
+  const saveEditor = async () => {
+    // console.log(editorFormData);
+    let res = await EditorService.saveEditor(editorFormData);
+    if (res.status === 201) {
+      // console.log(res.data);
+      setConfirmDialog({
+        isOpen: true,
+        title: "Are you sure you want to Save this Editor ?",
+        subTitle: "You can't revert this operation",
+        action: "Save",
+        confirmBtnStyle: {
+          backgroundColor: "rgb(26, 188, 156)",
+          color: "white",
+        },
+        onConfirm: async () => {
+          setOpenAlert({
+            open: true,
+            alert: "Editor Saved Successfully!!!",
+            severity: "success",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+          clearEditorForm();
+        },
+      });
+    } else {
+      setOpenAlert({
+        open: true,
+        alert: res.response.data.message,
+        severity: "error",
+        variant: "standard",
+      });
+      setConfirmDialog({ isOpen: false });
+    }
+  };
 
   return (
     <>
@@ -83,7 +160,7 @@ function ManageEditor() {
               className={styles.container_editor_form}
               justifyContent="center"
             >
-              <ValidatorForm>
+              <ValidatorForm onSubmit={saveEditor}>
                 <Grid
                   container
                   item
@@ -142,7 +219,7 @@ function ManageEditor() {
                       variant="outlined"
                       // size="small"
                       fullWidth
-                      validators={["matchRegexp:^[A-z]*$"]}
+                      validators={["matchRegexp:^[A-z\\s]*$"]}
                       errorMessages={["Invalid Name"]}
                       value={editorFormData.name}
                       onChange={(e) => {
@@ -261,7 +338,15 @@ function ManageEditor() {
                       sm={5.9}
                       // style={{ border: "2px solid blue" }}
                     >
-                      <button className={styles.btn__cancel}>Cancel</button>
+                      <button
+                        type="button"
+                        className={styles.btn__cancel}
+                        onClick={(e) => {
+                          clearEditorForm();
+                        }}
+                      >
+                        Cancel
+                      </button>
                     </Grid>
                     <Grid
                       container
@@ -272,7 +357,9 @@ function ManageEditor() {
                       sm={5.9}
                       // style={{ border: "2px solid blue" }}
                     >
-                      <button className={styles.btn__save}>Save</button>
+                      <button type="submit" className={styles.btn__save}>
+                        Save
+                      </button>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -290,6 +377,7 @@ function ManageEditor() {
             md={5.9}
             sm={12}
             xs={12}
+            // mt={5}
             className={styles.container__right}
             alignContent="start"
           >
@@ -301,6 +389,7 @@ function ManageEditor() {
               md={12}
               sm={12}
               xs={12}
+              mt={2}
               className={styles.title}
               justifyContent="center"
             >
@@ -315,7 +404,7 @@ function ManageEditor() {
               md={12}
               sm={12}
               xs={12}
-              mt={2}
+              // mt={3}
               // rowGap={2}
               className={styles.container__category__form}
               justifyContent="center"
@@ -425,7 +514,15 @@ function ManageEditor() {
                       sm={5.9}
                       // style={{ border: "2px solid blue" }}
                     >
-                      <button className={styles.btn__cancel}>Cancel</button>
+                      <button
+                        type="button"
+                        className={styles.btn__cancel}
+                        onClick={(e) => {
+                          console.log(e.target.innerText);
+                        }}
+                      >
+                        Cancel
+                      </button>
                     </Grid>
                     <Grid
                       container
@@ -436,7 +533,15 @@ function ManageEditor() {
                       sm={5.9}
                       // style={{ border: "2px solid blue" }}
                     >
-                      <button className={styles.btn__save}>Save</button>
+                      <button
+                        type="submit"
+                        className={styles.btn__save}
+                        onClick={(e) => {
+                          console.log(e.target.innerText);
+                        }}
+                      >
+                        Save
+                      </button>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -445,6 +550,19 @@ function ManageEditor() {
           </Grid>
         </Grid>
       </Grid>
+      <MySnackBar
+        open={openAlert.open}
+        alert={openAlert.alert}
+        severity={openAlert.severity}
+        variant={openAlert.variant}
+        onClose={() => {
+          setOpenAlert({ open: false });
+        }}
+      />
+      <ConfirmDialog
+        confirmDialog={confirmDialog}
+        setConfirmDialog={setConfirmDialog}
+      />
     </>
   );
 }
