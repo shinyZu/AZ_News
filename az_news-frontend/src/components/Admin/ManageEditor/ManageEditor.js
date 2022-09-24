@@ -8,6 +8,7 @@ import MySnackBar from "../../00_common/SnackBar/MySnackBar";
 import styles from "./ManageEditor.module.css";
 import EditorService from "../../../services/EditorService";
 import ConfirmDialog from "../../00_common/ConfirmDialog/ConfirmDialog";
+import CategoryService from "../../../services/CategoryService";
 
 function ManageEditor() {
   const [openAlert, setOpenAlert] = useState({
@@ -39,6 +40,17 @@ function ManageEditor() {
     description: "",
   });
 
+  const [nextCode, setNextCode] = useState("CTG-000");
+
+  // useEffect(() => {
+  //   generateNextCode()
+  // }, []);
+
+  // const getAllEditors = async () => {
+  //   let res = await EditorService.getAll();
+  //   console.log(res);
+  // };
+
   const clearEditorForm = () => {
     setEditorFormData({
       editor_nic: "",
@@ -52,15 +64,6 @@ function ManageEditor() {
   const clearCategoryForm = () => {
     setCategoryFormData({ category_code: "", category: "", description: "" });
   };
-
-  // useEffect(() => {
-  //   getAllEditors();
-  // });
-
-  // const getAllEditors = async () => {
-  //   let res = await EditorService.getAll();
-  //   console.log(res);
-  // };
 
   const saveEditor = async () => {
     // console.log(editorFormData);
@@ -76,7 +79,7 @@ function ManageEditor() {
           backgroundColor: "rgb(26, 188, 156)",
           color: "white",
         },
-        onConfirm: async () => {
+        onConfirm: () => {
           setOpenAlert({
             open: true,
             alert: "Editor Saved Successfully!!!",
@@ -85,6 +88,42 @@ function ManageEditor() {
           });
           setConfirmDialog({ isOpen: false });
           clearEditorForm();
+        },
+      });
+    } else {
+      setOpenAlert({
+        open: true,
+        alert: res.response.data.message,
+        severity: "error",
+        variant: "standard",
+      });
+      setConfirmDialog({ isOpen: false });
+    }
+  };
+
+  const saveCategory = async () => {
+    console.log(categoryFormData);
+    let res = await CategoryService.saveEditor(categoryFormData);
+    if (res.status === 201) {
+      // console.log(res.data);
+      setConfirmDialog({
+        isOpen: true,
+        title: "Are you sure you want to Add this Category ?",
+        subTitle: "You can't revert this operation",
+        action: "Save",
+        confirmBtnStyle: {
+          backgroundColor: "rgb(26, 188, 156)",
+          color: "white",
+        },
+        onConfirm: () => {
+          setOpenAlert({
+            open: true,
+            alert: "Category Saved Successfully!!!",
+            severity: "success",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+          clearCategoryForm();
         },
       });
     } else {
@@ -409,7 +448,7 @@ function ManageEditor() {
               className={styles.container__category__form}
               justifyContent="center"
             >
-              <ValidatorForm>
+              <ValidatorForm onSubmit={saveCategory}>
                 <Grid
                   container
                   item
@@ -461,7 +500,7 @@ function ManageEditor() {
                     justifyContent="center"
                   >
                     <TextValidator
-                      label="Editor's Name"
+                      label="Category Name"
                       type="text"
                       variant="outlined"
                       // size="small"
@@ -493,6 +532,14 @@ function ManageEditor() {
                       minRows={10.5}
                       placeholder="Description"
                       fullWidth
+                      value={categoryFormData.description}
+                      onChange={(e) => {
+                        console.log(e);
+                        setCategoryFormData({
+                          ...categoryFormData,
+                          description: e.target.value,
+                        });
+                      }}
                     />
                   </Grid>
 
@@ -517,9 +564,7 @@ function ManageEditor() {
                       <button
                         type="button"
                         className={styles.btn__cancel}
-                        onClick={(e) => {
-                          console.log(e.target.innerText);
-                        }}
+                        onClick={clearCategoryForm}
                       >
                         Cancel
                       </button>
@@ -533,13 +578,7 @@ function ManageEditor() {
                       sm={5.9}
                       // style={{ border: "2px solid blue" }}
                     >
-                      <button
-                        type="submit"
-                        className={styles.btn__save}
-                        onClick={(e) => {
-                          console.log(e.target.innerText);
-                        }}
-                      >
+                      <button type="submit" className={styles.btn__save}>
                         Save
                       </button>
                     </Grid>

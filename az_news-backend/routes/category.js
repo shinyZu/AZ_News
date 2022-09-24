@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+var cors = require("cors");
 const router = express.Router();
 // app.use(express.json());
 
 const Category = require("../models/category.models");
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   try {
     const categories = await Category.find();
     res.json(categories);
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", cors(), (req, res) => {
   Category.findById(req.params.id, (err, category) => {
     if (err) {
       return res.status(500).send(err);
@@ -26,7 +27,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.post("/", async (req, res) => {
+router.post("/", cors(), async (req, res) => {
   const body = req.body;
   const category = new Category({
     category_code: body.category_code,
@@ -38,26 +39,26 @@ router.post("/", async (req, res) => {
     // if any error occured while saving
     if (err) {
       if (err.errors) {
-        return res.status(500).send(err.message.split(":")[2]);
+        return res.status(500).json(err.message.split(":")[2]);
       }
 
       if (err.keyPattern.category_code == 1) {
-        return res.status(404).send("Duplicate Category Code!");
+        return res.status(404).json({ message: "Duplicate Category Code!" });
       } else if (err.keyPattern != null) {
-        return res.status(404).send("A Category already exist!");
+        return res.status(404).json({ message: "A Category already exist!" });
       } else if (!result) {
         return res
           .status(404)
-          .send("Couldn't save the Category. Please Try Again!");
+          .json({ message: "Couldn't save the Category. Please Try Again!" });
       } else if (result) {
-        res.send(result);
+        res.json(result);
       }
     }
-    res.status(201).send("Category Saved Succesfully!!!");
+    res.status(201).json({ message: "Category Saved Succesfully!!!" });
   });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", cors(), async (req, res) => {
   const body = req.body;
   Category.findById(req.params.id, (err, category) => {
     if (err) {
@@ -82,7 +83,7 @@ router.put("/:id", async (req, res) => {
   });
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", cors(), async (req, res) => {
   Category.findById(req.params.id, (err, category) => {
     if (err) {
       return res.status(500).send(err);
