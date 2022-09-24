@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -6,16 +6,18 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { AdapterDateFns } from "@mui/x-date-pickers-pro/AdapterDateFns";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 import styles from "./ManageNews.module.css";
+import CategoryService from "../../../services/CategoryService";
+import EditorService from "../../../services/EditorService";
 
 function ManageNews() {
-  const [categories, setCategories] = useState([]);
-  const [editors, setEditors] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
+  const [editorList, setEditorList] = useState([]);
   const [date, setDate] = useState(null);
   const [newsFormData, setNewsFormdata] = useState({
     headline: "",
@@ -25,6 +27,45 @@ function ManageNews() {
     date: "",
     editor: "",
   });
+
+  useEffect(() => {
+    getAllCategories();
+    getAllEditors();
+  }, []);
+
+  const getAllCategories = async () => {
+    let res = await CategoryService.getAll();
+    if (res.status === 200) {
+      console.log(res.data);
+
+      if (res.data != []) {
+        let categories = res.data;
+        console.log(categories);
+        categoryList.length = 0;
+        categories.map((category) => {
+          categoryList.push(category.category);
+        });
+        console.log(categoryList);
+      }
+    }
+  };
+
+  const getAllEditors = async () => {
+    let res = await EditorService.getAll();
+    if (res.status === 200) {
+      console.log(res.data);
+
+      if (res.data != []) {
+        let editors = res.data;
+        console.log(editors);
+        editorList.length = 0;
+        editors.map((editor) => {
+          editorList.push(editor.name);
+        });
+        console.log(editorList);
+      }
+    }
+  };
 
   return (
     <>
@@ -66,7 +107,7 @@ function ManageNews() {
               disablePortal
               style={{ width: "80%" /* , marginBottom: "7vh" */ }}
               value={newsFormData.category}
-              options={categories}
+              options={categoryList}
               renderInput={(params) => (
                 <TextField {...params} label="Category" />
               )}
@@ -175,7 +216,7 @@ function ManageNews() {
                   fullWidth
                   // style={{ width: "80%" }}
                   value={newsFormData.editor}
-                  options={editors}
+                  options={editorList}
                   renderInput={(params) => (
                     <TextField {...params} label="Editor" />
                   )}

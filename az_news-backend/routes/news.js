@@ -26,7 +26,7 @@ conn.once("open", () => {
   gfs.collection("assets");
 });
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   try {
     const news = await News.find();
     res.json(news);
@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", cors(), (req, res) => {
   News.findById(req.params.id, (err, news) => {
     if (err) {
       return res.status(500).send(err);
@@ -49,7 +49,7 @@ router.get("/:id", (req, res) => {
 });
 
 // To recieve uploaded files(images/videos)
-router.get("/file/:filename", async (req, res) => {
+router.get("/file/:filename", cors(), async (req, res) => {
   // console.log(gfs.files);
   // console.log(req.params.filename); // 1663839024551-cover.jpg
 
@@ -68,7 +68,7 @@ router.get("/file/:filename", async (req, res) => {
 });
 
 // To publish a new News
-router.post("/", upload.single("media_body"), async (req, res) => {
+router.post("/", cors(), upload.single("media_body"), async (req, res) => {
   const body = req.body;
   // console.log(req.file);
   console.log(body);
@@ -128,7 +128,7 @@ router.post("/", upload.single("media_body"), async (req, res) => {
   });
 });
 
-router.put("/:id", upload.single("media_body"), async (req, res) => {
+router.put("/:id", cors(), upload.single("media_body"), async (req, res) => {
   const body = req.body;
   // console.log(body);
   // console.log(req.file);
@@ -189,7 +189,7 @@ router.put("/:id", upload.single("media_body"), async (req, res) => {
 });
 
 // To delete published News
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", cors(), async (req, res) => {
   News.findById(req.params.id, (err, news) => {
     if (err) {
       return res.status(500).send(err);
@@ -210,7 +210,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 // To delete uploaded files(images/videos)
-router.delete("/file/:filename", (req, res) => {
+router.delete("/file/:filename", cors(), (req, res) => {
   gfs.files.deleteOne({ filename: req.params.filename }, (err, result) => {
     if (err) {
       return res.status(500).send(err);
