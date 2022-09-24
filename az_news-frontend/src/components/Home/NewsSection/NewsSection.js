@@ -32,7 +32,7 @@ function NewsSection(props) {
             category="Business"
             headline="Headline"
             date="Jan 01"
-            chip_color="#2980b9"
+            chip_color="#ED4C67"
           />
         </Grid>
 
@@ -100,7 +100,7 @@ function NewsSection(props) {
               category="International"
               headline="Headline"
               date="Jan 01"
-              chip_color="#ff7675"
+              chip_color="#0abde3"
             />
           </Grid>
         </Grid>

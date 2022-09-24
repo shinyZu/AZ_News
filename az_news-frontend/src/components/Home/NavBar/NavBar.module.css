@@ -6,8 +6,8 @@
 
 .nav__text {
   color: black;
-  font-weight: 700 !important;
   font-family: "Bree Serif", serif !important;
-  font-size: 1.3vw !important;
+  font-weight: 700 !important;
+  font-size: 1.2vw !important;
   text-decoration: none;
 }

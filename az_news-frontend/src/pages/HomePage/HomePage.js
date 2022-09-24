@@ -11,6 +11,7 @@ import Sports from "../../components/Home/NewsSection/NewsSection";
 import Tech from "../../components/Home/NewsSection/NewsSection";
 import TrendingNews from "./TrendingNews/TrendingNews";
 import Gallery from "./Gallery/Gallery";
+import Footer from "../../components/Home/Footer/Footer";
 
 function HomePage() {
   return (
@@ -239,6 +240,7 @@ function HomePage() {
             </Grid>
           </Grid>
         </Grid>
+        <Footer />
       </Grid>
     </>
   );

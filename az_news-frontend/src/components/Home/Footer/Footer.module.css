@@ -1,0 +1,44 @@
+.container {
+  /* border: 2px solid green; */
+  height: 20vh;
+  background-image: url("https://www.transparenttextures.com/patterns/nistri.png");
+}
+
+.container__left {
+  /* border: 2px solid red; */
+  height: 80%;
+  text-align: justify;
+}
+
+/* .container__middle {
+  border: 2px solid red;
+} */
+
+/* .container__right {
+  border: 2px solid red;
+} */
+
+.container__icons {
+  /* border: 2px solid blue; */
+  margin: 20px auto;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.container__copyright {
+  /* border: 2px solid blue; */
+  height: 20%;
+}
+
+.footer_title {
+  font-family: "Overlock", cursive !important;
+  font-weight: 800 !important;
+  font-size: 2.3vw !important;
+}
+
+.footer_para {
+  font-family: "Overlock", cursive !important;
+  font-size: 1vw !important;
+}

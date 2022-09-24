@@ -33,7 +33,7 @@ function TopStories(props) {
             category="Business"
             headline="Headline"
             date="Jan 01"
-            chip_color="#2980b9"
+            chip_color="#ED4C67"
           />
         </Grid>
         <Grid
