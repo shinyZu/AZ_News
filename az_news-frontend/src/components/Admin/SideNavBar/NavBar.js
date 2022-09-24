@@ -23,6 +23,7 @@ import MailIcon from "@mui/icons-material/Mail";
 
 import GridViewIcon from "@mui/icons-material/GridView";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import CategoryIcon from "@mui/icons-material/Category";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -176,8 +177,8 @@ export default function NavBar() {
         <List>
           {[
             "Dashboard",
-            "Manage Editors",
-            "Manage Categories",
+            "Add New",
+            // "Manage Categories",
             "Manage News",
             "Manage Gallery",
           ].map((text, index) => (
@@ -209,30 +210,31 @@ export default function NavBar() {
                       }}
                     />
                   ) : index === 1 ? (
-                    <ManageAccountsIcon
+                    <GroupAddIcon
                       className={styles.nav__icons}
                       onClick={() => {
                         setDisplayDashboard(false);
                         setDisplayManageEditors(true);
-                        setTitle("Manage Editors");
+                        setTitle("Editors and Category");
                         setDisplayManageCategories(false);
                         setDisplayManageNews(false);
                         setDisplayManageGallery(false);
                       }}
                     />
-                  ) : index === 2 ? (
-                    <CategoryIcon
-                      className={styles.nav__icons}
-                      onClick={() => {
-                        setDisplayDashboard(false);
-                        setDisplayManageEditors(false);
-                        setDisplayManageCategories(true);
-                        setTitle("Manage Categories");
-                        setDisplayManageNews(false);
-                        setDisplayManageGallery(false);
-                      }}
-                    />
-                  ) : index === 3 ? (
+                  ) : //  : index === 2 ? (
+                  //   <CategoryIcon
+                  //     className={styles.nav__icons}
+                  //     onClick={() => {
+                  //       setDisplayDashboard(false);
+                  //       setDisplayManageEditors(false);
+                  //       setDisplayManageCategories(true);
+                  //       setTitle("Manage Categories");
+                  //       setDisplayManageNews(false);
+                  //       setDisplayManageGallery(false);
+                  //     }}
+                  //   />
+                  // )
+                  index === 2 ? (
                     <NewspaperIcon
                       className={styles.nav__icons}
                       onClick={() => {

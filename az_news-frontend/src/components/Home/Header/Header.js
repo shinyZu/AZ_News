@@ -100,6 +100,7 @@ function Header() {
                 md={1.5}
                 sm={2}
                 xs={2}
+                mr={2}
                 // style={{ border: "2px solid blue" }}
                 justifyContent="flex-end"
                 // alignItems="end"
@@ -109,7 +110,7 @@ function Header() {
                 </NavLink>
               </Grid>
 
-              <Grid
+              {/* <Grid
                 container
                 item
                 xl={2}
@@ -123,7 +124,7 @@ function Header() {
                 <NavLink to="/register" className={styles.nav__text}>
                   <Button className={styles.btn__signIn}>Sign In</Button>
                 </NavLink>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Grid>
         </Grid>

@@ -46,7 +46,7 @@
 
 .container__form {
   /* border: 2px solid red; */
-  height: 70%;
+  height: 60%;
 }
 
 /* .subcontainer__form {
@@ -64,7 +64,7 @@
   /* background-color: #c48863; */
   background-color: #35597c;
   color: white;
-  padding: 10px;
+  padding: 15px;
   width: 250px;
   border-radius: 5px;
   border: none;

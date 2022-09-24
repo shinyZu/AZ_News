@@ -1,5 +1,5 @@
 html {
-  font-family: "Bree Serif", serif !important;
+  /* font-family: "Bree Serif", serif !important; */
   /* font-size: 0.8rem; */
 }
 
@@ -9,9 +9,9 @@ body {
   width: 65%;
   margin: auto;
 
-  /* font-family: "Acme", sans-serif; */
+  /* font-family: "Acme", sans-serif !important; */
   font-family: "Bree Serif", serif !important;
-  /* font-family: "Open Sans", sans-serif; */
+  /* font-family: "Open Sans", sans-serif !important; */
   /* font-family: "Overlock", cursive; */
   /* font-family: "Roboto Condensed", sans-serif; */
 }
@@ -49,4 +49,16 @@ font-family: 'Roboto Condensed', sans-serif;
 
 ::-webkit-scrollbar-corner {
   background-color: #ecf0f1;
+}
+
+.css-8u39c-MuiTypography-root,
+.css-10hburv-MuiTypography-root,
+.css-ag7rrr-MuiTypography-root,
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root,
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input,
+.css-1wc848c-MuiFormHelperText-root,
+textarea {
+  font-family: "Bree Serif", serif !important;
+  /* font-family: "Open Sans", sans-serif !important; */
 }

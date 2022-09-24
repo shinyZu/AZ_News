@@ -1,0 +1,47 @@
+.container {
+  /* border: 2px solid red; */
+  height: 80vh;
+}
+
+/* .container__main {
+  border: 2px solid blue;
+} */
+
+.title {
+  /* border: 2px solid rgb(111, 0, 255); */
+  height: 10%;
+}
+
+/* .container__left,
+.container__right {
+  border: 2px solid red;
+} */
+
+.container_editor_form,
+.container__category__form {
+  /* border: 2px solid green; */
+  margin-bottom: 50px;
+}
+
+/* .container_form {
+  border: 2px solid green;
+} */
+
+.btn__save,
+.btn__cancel {
+  width: 100%;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: "Bree Serif", serif !important;
+}
+
+.btn__save {
+  background-color: #16a085;
+}
+
+.btn__cancel {
+  background-color: #95a5a6;
+}

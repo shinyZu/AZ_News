@@ -179,11 +179,12 @@ function Login(props) {
                 md={12}
                 sm={12}
                 xs={12}
+                mt={2}
                 className={styles.container__logo}
                 justifyContent="center"
                 alignItems="center"
               >
-                <PersonIcon style={{ fontSize: "100px", color: "#35597c" }} />
+                <PersonIcon style={{ fontSize: "150px", color: "#35597c" }} />
               </Grid>
 
               <Grid
@@ -342,7 +343,7 @@ function Login(props) {
                       </button>
                     )}
                   </Grid>
-                  <Grid
+                  {/* <Grid
                     container
                     xl={12}
                     lg={12}
@@ -390,7 +391,7 @@ function Login(props) {
                         </NavLink>
                       </>
                     )}
-                  </Grid>
+                  </Grid> */}
                 </ValidatorForm>
               </Grid>
             </Grid>
