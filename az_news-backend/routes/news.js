@@ -72,6 +72,7 @@ router.post("/", cors(), upload.single("media_body"), async (req, res) => {
   const body = req.body;
   // console.log(req.file);
   console.log(body);
+  console.log(req.file);
 
   let news;
 
@@ -99,19 +100,19 @@ router.post("/", cors(), upload.single("media_body"), async (req, res) => {
   // Checks whether the Editor exist or not
   Editor.findById(body.editor, (err1, editor) => {
     if (err1) {
-      return res.status(500).send(err1);
+      return res.status(500).json({ message: err1 });
     }
     if (!editor) {
-      return res.status(404).send("Editor doesn't exist!");
+      return res.status(404).json({ message: "Editor doesn't exist!" });
     }
 
     // Checks whether the Category exist or not
     Category.findById(body.category, (err2, category) => {
       if (err2) {
-        return res.status(500).send(err2);
+        return res.status(500).json({ message: err2 });
       }
       if (!category) {
-        return res.status(404).send("Category doesn't exist!");
+        return res.status(404).send({ message: "Category doesn't exist!" });
       }
 
       // If only both Editor & Category exist the News will be eligible to publish
@@ -119,10 +120,10 @@ router.post("/", cors(), upload.single("media_body"), async (req, res) => {
         if (err3) {
           if (err3.errors) {
             // return res.status(500).send(err3.message.split(":")[2]);
-            return res.status(500).send(err3.message);
+            return res.status(500).json({ message: err3.message });
           }
         }
-        res.status(201).send("News Published Successfully!!!");
+        res.status(201).json({ message: "News Published Successfully!!!" });
       });
     });
   });

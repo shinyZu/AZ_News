@@ -11,10 +11,11 @@
 
 .container__upload__1 {
   /* border: 2px solid red; */
-  height: 10%;
+  /* height: 10%; */
 }
 
 .btn__browse {
+  /* border: 2px solid red; */
   background-color: #16a085;
   color: white;
   width: 15% !important;
@@ -25,6 +26,10 @@
   font-family: "Bree Serif", serif !important;
 }
 
+.btn__browse:hover {
+  background-color: #108069;
+}
+
 .container__upload__2 {
   /* border: 2px solid red; */
   margin-top: 2vh;
@@ -32,8 +37,8 @@
 
 .container__upload__box {
   /* border: 2px solid blue; */
-  background-color: #ccc;
-  height: 50vh;
+  background-color: rgba(209, 206, 206, 0.904);
+  height: 55vh;
 }
 
 /* .container__btn {
@@ -58,20 +63,40 @@
   background-color: #95a5a6;
 }
 
+.btn__cancel:hover {
+  background-color: #7d8181;
+}
+
 .btn__publish {
   background-color: #16a085;
+}
+
+.btn__publish:hover {
+  background-color: #108069;
 }
 
 .btn__delete {
   background-color: #e74c3c;
 }
 
+.btn__delete:hover {
+  background-color: #da4534;
+}
+
 .btn__preview {
   background-color: #e67e22;
 }
 
+.btn__preview:hover {
+  background-color: #d4711a;
+}
+
 .btn__update {
   background-color: #2980b9;
+}
+
+.btn__update:hover {
+  background-color: #216b9c;
 }
 /* 
 .btn__preview,

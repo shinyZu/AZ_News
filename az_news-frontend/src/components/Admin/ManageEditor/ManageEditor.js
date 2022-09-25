@@ -4,10 +4,11 @@ import Typography from "@mui/material/Typography";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import MySnackBar from "../../00_common/SnackBar/MySnackBar";
+import ConfirmDialog from "../../00_common/ConfirmDialog/ConfirmDialog";
 
 import styles from "./ManageEditor.module.css";
+
 import EditorService from "../../../services/EditorService";
-import ConfirmDialog from "../../00_common/ConfirmDialog/ConfirmDialog";
 import CategoryService from "../../../services/CategoryService";
 
 function ManageEditor() {
@@ -66,20 +67,34 @@ function ManageEditor() {
   };
 
   const saveEditor = async () => {
-    // console.log(editorFormData);
-    let res = await EditorService.saveEditor(editorFormData);
-    if (res.status === 201) {
-      // console.log(res.data);
-      setConfirmDialog({
-        isOpen: true,
-        title: "Are you sure you want to Save this Editor ?",
-        subTitle: "You can't revert this operation",
-        action: "Save",
-        confirmBtnStyle: {
-          backgroundColor: "rgb(26, 188, 156)",
-          color: "white",
-        },
-        onConfirm: () => {
+    if (
+      editorFormData.editor_nic === "" ||
+      editorFormData.name === "" ||
+      editorFormData.address === "" ||
+      editorFormData.email === "" ||
+      editorFormData.contact_no === ""
+    ) {
+      setOpenAlert({
+        open: true,
+        alert: "Please Fill All Inputs!",
+        severity: "error",
+        variant: "standard",
+      });
+      return;
+    }
+
+    setConfirmDialog({
+      isOpen: true,
+      title: "Are you sure you want to Save this Editor ?",
+      subTitle: "You can't revert this operation",
+      action: "Save",
+      confirmBtnStyle: {
+        backgroundColor: "rgb(26, 188, 156)",
+        color: "white",
+      },
+      onConfirm: async () => {
+        let res = await EditorService.saveEditor(editorFormData);
+        if (res.status === 201) {
           setOpenAlert({
             open: true,
             alert: "Editor Saved Successfully!!!",
@@ -88,17 +103,49 @@ function ManageEditor() {
           });
           setConfirmDialog({ isOpen: false });
           clearEditorForm();
-        },
-      });
-    } else {
-      setOpenAlert({
-        open: true,
-        alert: res.response.data.message,
-        severity: "error",
-        variant: "standard",
-      });
-      setConfirmDialog({ isOpen: false });
-    }
+        } else {
+          setOpenAlert({
+            open: true,
+            alert: res.response.data.message,
+            severity: "error",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+        }
+      },
+    });
+
+    // let res = await EditorService.saveEditor(editorFormData);
+    // if (res.status === 201) {
+    //   setConfirmDialog({
+    //     isOpen: true,
+    //     title: "Are you sure you want to Save this Editor ?",
+    //     subTitle: "You can't revert this operation",
+    //     action: "Save",
+    //     confirmBtnStyle: {
+    //       backgroundColor: "rgb(26, 188, 156)",
+    //       color: "white",
+    //     },
+    //     onConfirm: () => {
+    //       setOpenAlert({
+    //         open: true,
+    //         alert: "Editor Saved Successfully!!!",
+    //         severity: "success",
+    //         variant: "standard",
+    //       });
+    //       setConfirmDialog({ isOpen: false });
+    //       clearEditorForm();
+    //     },
+    //   });
+    // } else {
+    //   setOpenAlert({
+    //     open: true,
+    //     alert: res.response.data.message,
+    //     severity: "error",
+    //     variant: "standard",
+    //   });
+    //   setConfirmDialog({ isOpen: false });
+    // }
   };
 
   const saveCategory = async () => {

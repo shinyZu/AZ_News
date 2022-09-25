@@ -5,19 +5,32 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFns } from "@mui/x-date-pickers-pro/AdapterDateFns";
+// import { AdapterDateFns } from "@mui/x-date-pickers-pro/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import MySnackBar from "../../00_common/SnackBar/MySnackBar";
+import ConfirmDialog from "../../00_common/ConfirmDialog/ConfirmDialog";
 
 import styles from "./ManageNews.module.css";
+
 import CategoryService from "../../../services/CategoryService";
 import EditorService from "../../../services/EditorService";
+import NewsService from "../../../services/NewsService";
+
+import bg1 from "../../../assets/images/other/gallery1.png";
 
 function ManageNews() {
   const [categoryList, setCategoryList] = useState([]);
   const [editorList, setEditorList] = useState([]);
+
+  const [categoryName, setCategoryName] = useState("");
+  const [editorName, setEditorName] = useState("");
+
+  const [media, setMedia] = useState(null);
+
   const [date, setDate] = useState(null);
   const [newsFormData, setNewsFormdata] = useState({
     headline: "",
@@ -28,6 +41,23 @@ function ManageNews() {
     editor: "",
   });
 
+  const [openAlert, setOpenAlert] = useState({
+    open: "",
+    alert: "",
+    severity: "",
+    variant: "",
+  });
+
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: "",
+    subTitle: "",
+    confirmBtnStyle: {},
+    action: "",
+  });
+
+  // const data = new FormData();
+
   useEffect(() => {
     getAllCategories();
     getAllEditors();
@@ -36,35 +66,195 @@ function ManageNews() {
   const getAllCategories = async () => {
     let res = await CategoryService.getAll();
     if (res.status === 200) {
-      console.log(res.data);
-
       if (res.data != []) {
         let categories = res.data;
-        console.log(categories);
-        categoryList.length = 0;
-        categories.map((category) => {
-          categoryList.push(category.category);
+        // console.log(categories);
+        setCategoryList([]);
+
+        categories.map((category, index) => {
+          setCategoryList((prev) => {
+            return [
+              ...prev,
+              { categoryId: category._id, categoryTitle: category.category },
+            ];
+          });
         });
-        console.log(categoryList);
+        // console.log(editorList);
       }
     }
   };
 
   const getAllEditors = async () => {
     let res = await EditorService.getAll();
+    // console.log(res);
     if (res.status === 200) {
-      console.log(res.data);
-
       if (res.data != []) {
         let editors = res.data;
-        console.log(editors);
-        editorList.length = 0;
-        editors.map((editor) => {
-          editorList.push(editor.name);
+        // console.log(editors);
+        setEditorList([]);
+
+        editors.map((editor, index) => {
+          // let temp = { userId: user.id, username: user.username };
+          setEditorList((prev) => {
+            return [...prev, { editorId: editor._id, editorName: editor.name }];
+          });
         });
-        console.log(editorList);
+        // console.log(editorList);
       }
     }
+  };
+
+  const clearForm = () => {
+    setNewsFormdata({
+      headline: "",
+      text_body: "",
+      media_body: "",
+      category: "",
+      date: "",
+      editor: "",
+    });
+    setDate(null);
+    setEditorName("");
+    setCategoryName("");
+    setMedia(null);
+  };
+
+  // Preview Image
+  const handleMediaUpload = (e) => {
+    const { files } = e.target;
+    const fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      const { result } = e.target;
+      // console.log(result);
+      if (result) {
+        setMedia(result);
+      }
+    };
+    fileReader.readAsDataURL(files[0]);
+  };
+
+  const publishNews = async () => {
+    if (
+      newsFormData.headline === "" ||
+      newsFormData.text_body === "" ||
+      newsFormData.media_body == null ||
+      newsFormData.category === "" ||
+      newsFormData.date === "" ||
+      newsFormData.editor === ""
+    ) {
+      setOpenAlert({
+        open: true,
+        alert: "Please fill all inputs!",
+        severity: "error",
+        variant: "standard",
+      });
+      return;
+    }
+
+    console.log(newsFormData);
+
+    // if (
+    //   newsFormData.headline != "" ||
+    //   newsFormData.text_body != "" ||
+    //   newsFormData.media_body == null ||
+    //   newsFormData.category != "" ||
+    //   newsFormData.date != "" ||
+    //   newsFormData.editor != ""
+    // ) {
+    //   setOpenAlert({
+    //     open: true,
+    //     alert: "No Media choosen!!",
+    //     severity: "error",
+    //     variant: "standard",
+    //   });
+    //   return;
+    // }
+
+    // console.log(newsFormData);
+    // console.log(newsFormData.media_body);
+
+    let data = new FormData();
+    data.append("headline", newsFormData.headline);
+    data.append("text_body", newsFormData.text_body);
+    data.append("media_body", newsFormData.media_body);
+    data.append("category", newsFormData.category);
+    data.append("date", newsFormData.date);
+    data.append("editor", newsFormData.editor);
+
+    // console.log(data);
+
+    setConfirmDialog({
+      isOpen: true,
+      title: "Are you sure you want to Publish this News ?",
+      subTitle: "You can't revert this operation",
+      action: "Save",
+      confirmBtnStyle: {
+        backgroundColor: "rgb(26, 188, 156)",
+        color: "white",
+      },
+      onConfirm: async () => {
+        let res = await NewsService.publish(data);
+        if (res.status === 201) {
+          setOpenAlert({
+            open: true,
+            alert: "News Published Successfully!!!",
+            severity: "success",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+          clearForm();
+        } else {
+          setOpenAlert({
+            open: true,
+            alert: res.response.data.message,
+            severity: "error",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+        }
+      },
+    });
+
+    //   let res = await NewsService.publish(data);
+    //   if (res.status === 201) {
+    //     // console.log(res.data);
+    //     if (newsFormData.media_body == null) {
+    //       setOpenAlert({
+    //         open: true,
+    //         alert: "No Media choosen!!",
+    //         severity: "error",
+    //         variant: "standard",
+    //       });
+    //     }
+    //     setConfirmDialog({
+    //       isOpen: true,
+    //       title: "Are you sure you want to Publish this News ?",
+    //       subTitle: "You can't revert this operation",
+    //       action: "Save",
+    //       confirmBtnStyle: {
+    //         backgroundColor: "rgb(26, 188, 156)",
+    //         color: "white",
+    //       },
+    //       onConfirm: () => {
+    //         setOpenAlert({
+    //           open: true,
+    //           alert: "News Published Successfully!!!",
+    //           severity: "success",
+    //           variant: "standard",
+    //         });
+    //         setConfirmDialog({ isOpen: false });
+    //         clearForm();
+    //       },
+    //     });
+    //   } else {
+    //     setOpenAlert({
+    //       open: true,
+    //       alert: res.response.data.message,
+    //       severity: "error",
+    //       variant: "standard",
+    //     });
+    //     setConfirmDialog({ isOpen: false });
+    //   }
   };
 
   return (
@@ -106,16 +296,19 @@ function ManageNews() {
               id="category"
               disablePortal
               style={{ width: "80%" /* , marginBottom: "7vh" */ }}
-              value={newsFormData.category}
               options={categoryList}
+              getOptionLabel={(option) => option.categoryTitle}
+              // value={newsFormData.category}
+              inputValue={categoryName}
               renderInput={(params) => (
                 <TextField {...params} label="Category" />
               )}
               disabledItemsFocusable
               onChange={(e, v) => {
+                setCategoryName(v.categoryTitle);
                 setNewsFormdata({
                   ...newsFormData,
-                  category: v,
+                  category: v.categoryId,
                 });
               }}
             />
@@ -135,6 +328,14 @@ function ManageNews() {
                 placeholder="Headline"
                 fullWidth
                 style={{ width: "80%" }}
+                value={newsFormData.headline}
+                onChange={(e) => {
+                  console.log(e);
+                  setNewsFormdata({
+                    ...newsFormData,
+                    headline: e.target.value,
+                  });
+                }}
               />
             </Grid>
             <Grid
@@ -153,6 +354,14 @@ function ManageNews() {
                 placeholder="Description"
                 fullWidth
                 style={{ width: "80%" }}
+                value={newsFormData.text_body}
+                onChange={(e) => {
+                  console.log(e);
+                  setNewsFormdata({
+                    ...newsFormData,
+                    text_body: e.target.value,
+                  });
+                }}
               />
             </Grid>
 
@@ -182,13 +391,15 @@ function ManageNews() {
                   <DatePicker
                     className="text-center border-l-4 border-red-500  w-full p-3 rounded text-sm  outline-none  focus:ring-0 bg-transparent"
                     // label="Date"
-                    value={newsFormData.date}
+                    // value={newsFormData.date}
+                    value={date}
                     // inputFormat="dd/MM/yyyy"
                     style={{ width: "80%" }}
                     onChange={(newValue) => {
                       setDate(newValue);
                       setNewsFormdata({
                         ...newsFormData,
+                        // date: new Date(newValue).toISOString().split("T")[0],
                         date: newValue,
                       });
                     }}
@@ -215,16 +426,19 @@ function ManageNews() {
                   disablePortal
                   fullWidth
                   // style={{ width: "80%" }}
-                  value={newsFormData.editor}
                   options={editorList}
+                  getOptionLabel={(option) => option.editorName}
+                  // value={newsFormData.editor}
+                  inputValue={editorName}
                   renderInput={(params) => (
                     <TextField {...params} label="Editor" />
                   )}
                   disabledItemsFocusable
                   onChange={(e, v) => {
+                    setEditorName(v.editorName);
                     setNewsFormdata({
                       ...newsFormData,
-                      editor: v,
+                      editor: v.editorId,
                     });
                   }}
                 />
@@ -258,7 +472,34 @@ function ManageNews() {
             className={styles.container__upload__1}
           >
             <Typography variant="h5">Upload Media</Typography>
-            <button className={styles.btn__browse}>Browse</button>
+
+            <Button
+              component="label"
+              variant="outlined"
+              className={styles.btn__browse}
+              style={{
+                backgroundColor: "#16a085",
+                color: "white",
+                border: "none",
+                // height: "50px",
+              }}
+            >
+              Browse
+              <input
+                type="file"
+                accept="*"
+                hidden
+                onChange={(e) => {
+                  handleMediaUpload(e);
+                  setNewsFormdata({
+                    ...newsFormData,
+                    media_body: e.target.files[0],
+                  });
+                  console.log(newsFormData);
+                  setMedia(e.target.files[0]);
+                }}
+              />
+            </Button>
           </Grid>
           <Grid
             container
@@ -273,7 +514,7 @@ function ManageNews() {
           >
             <Grid
               container
-              item
+              // item
               xl={12}
               lg={12}
               md={12}
@@ -281,28 +522,78 @@ function ManageNews() {
               xs={12}
               mt={2}
               className={styles.container__upload__box}
-            ></Grid>
-            <Grid
-              container
-              item
-              xl={12}
-              lg={12}
-              md={12}
-              sm={12}
-              xs={12}
-              mt={3}
-              className={styles.container__btn}
-              justifyContent="space-between"
+              style={{ backgroundImage: `url${media}` }}
             >
-              <button className={styles.btn__cancel}>Cancel</button>
-              <button className={styles.btn__delete}>Delete</button>
-              <button className={styles.btn__preview}>Preview</button>
-              <button className={styles.btn__update}>Update</button>
-              <button className={styles.btn__publish}>Publish</button>
+              <img
+                src={media}
+                // alt={categoryName}
+                loading="lazy"
+                style={{
+                  // border: "2px solid red",
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
             </Grid>
+            {/* / */}
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          item
+          xl={11}
+          lg={11}
+          md={11}
+          sm={11}
+          xs={11}
+          ml={8}
+          justifyContent="center"
+          alignItems="center"
+          // style={{ border: "2px solid red" }}
+        >
+          <Grid
+            container
+            item
+            xl={12}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            mt={3}
+            className={styles.container__btn}
+            justifyContent="space-between"
+          >
+            <button className={styles.btn__cancel} onClick={clearForm}>
+              Cancel
+            </button>
+            <button className={styles.btn__delete}>Delete</button>
+            <button className={styles.btn__preview}>Preview</button>
+            <button className={styles.btn__update}>Update</button>
+            <button
+              className={styles.btn__publish}
+              onClick={() => {
+                publishNews();
+                // clearForm();
+              }}
+            >
+              Publish
+            </button>
           </Grid>
         </Grid>
       </Grid>
+      <MySnackBar
+        open={openAlert.open}
+        alert={openAlert.alert}
+        severity={openAlert.severity}
+        variant={openAlert.variant}
+        onClose={() => {
+          setOpenAlert({ open: false });
+        }}
+      />
+      <ConfirmDialog
+        confirmDialog={confirmDialog}
+        setConfirmDialog={setConfirmDialog}
+      />
     </>
   );
 }

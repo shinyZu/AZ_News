@@ -27,6 +27,18 @@ router.get("/:id", cors(), async (req, res) => {
   });
 });
 
+router.get("/:name", cors(), async (req, res) => {
+  Editor.find({ name: req.params.name }, (err, editor) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    if (!editor) {
+      return res.status(404).send("Editor doesn't exist!");
+    }
+    res.json(editor);
+  });
+});
+
 router.post("/", cors(), async (req, res) => {
   const body = req.body;
   const editor = new Editor({
