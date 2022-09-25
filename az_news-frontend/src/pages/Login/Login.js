@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 
 import styles from "./Login.module.css";
 
-import bg_img from "../../assets/images/office7.jpg";
+import bg_img from "../../assets/images/office4.jpg";
 
 function Login(props) {
   const { classes } = props;

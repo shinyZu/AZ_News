@@ -22,16 +22,17 @@
 }
 
 .closeBtn {
-  border: 2px solid white;
+  border: 2px solid black;
   z-index: 3;
   border-radius: 50%;
-  padding: 5px;
+  padding: 8px;
+  color: black;
 }
 
 .closeBtn:hover {
   font-size: x-large !important;
-  border: 2px solid yellow;
-  color: yellow;
+  border: 2px solid red;
+  color: red;
 }
 
 .container__2 {
