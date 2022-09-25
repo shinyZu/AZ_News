@@ -475,7 +475,7 @@ function ManageEditor() {
               // mt={3}
               // rowGap={2}
               className={styles.container__category__form}
-              justifyContent="center"
+              // justifyContent="center"
             >
               <ValidatorForm onSubmit={saveCategory}>
                 <Grid
@@ -488,6 +488,8 @@ function ManageEditor() {
                   xs={12}
                   rowGap={2}
                   justifyContent="center"
+                  // alignItems="center"
+                  // alignContent="center"
                 >
                   <Grid
                     container
@@ -507,7 +509,7 @@ function ManageEditor() {
                       // size="small"
                       fullWidth
                       validators={["matchRegexp:^(CTG-00)[0-9]*$"]}
-                      errorMessages={["Invalid Category Code"]}
+                      errorMessages={["Format : CTG-000.."]}
                       value={categoryFormData.category_code}
                       onChange={(e) => {
                         setCategoryFormData({
