@@ -40,9 +40,8 @@
 
 .btn__login,
 .btn__signIn {
-  /* border: 2px solid red !important; */
-  background-color: transparent;
-  color: black !important;
+  background-color: #e74c3c !important;
+  color: white !important;
 
   border-radius: 5px;
   font-size: 1.3vw !important;
@@ -51,7 +50,7 @@
 
 .btn__login:hover,
 .btn__signIn:hover {
-  background-color: #e74c3c !important;
+  background-color: black !important;
   color: white !important;
 }
 

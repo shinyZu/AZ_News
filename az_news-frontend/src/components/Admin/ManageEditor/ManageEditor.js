@@ -114,55 +114,37 @@ function ManageEditor() {
         }
       },
     });
-
-    // let res = await EditorService.saveEditor(editorFormData);
-    // if (res.status === 201) {
-    //   setConfirmDialog({
-    //     isOpen: true,
-    //     title: "Are you sure you want to Save this Editor ?",
-    //     subTitle: "You can't revert this operation",
-    //     action: "Save",
-    //     confirmBtnStyle: {
-    //       backgroundColor: "rgb(26, 188, 156)",
-    //       color: "white",
-    //     },
-    //     onConfirm: () => {
-    //       setOpenAlert({
-    //         open: true,
-    //         alert: "Editor Saved Successfully!!!",
-    //         severity: "success",
-    //         variant: "standard",
-    //       });
-    //       setConfirmDialog({ isOpen: false });
-    //       clearEditorForm();
-    //     },
-    //   });
-    // } else {
-    //   setOpenAlert({
-    //     open: true,
-    //     alert: res.response.data.message,
-    //     severity: "error",
-    //     variant: "standard",
-    //   });
-    //   setConfirmDialog({ isOpen: false });
-    // }
   };
 
   const saveCategory = async () => {
-    console.log(categoryFormData);
-    let res = await CategoryService.saveEditor(categoryFormData);
-    if (res.status === 201) {
-      // console.log(res.data);
-      setConfirmDialog({
-        isOpen: true,
-        title: "Are you sure you want to Add this Category ?",
-        subTitle: "You can't revert this operation",
-        action: "Save",
-        confirmBtnStyle: {
-          backgroundColor: "rgb(26, 188, 156)",
-          color: "white",
-        },
-        onConfirm: () => {
+    // console.log(categoryFormData);
+
+    if (
+      categoryFormData.category_code === "" ||
+      categoryFormData.category === "" ||
+      categoryFormData.description === ""
+    ) {
+      setOpenAlert({
+        open: true,
+        alert: "Please Fill All Inputs!",
+        severity: "error",
+        variant: "standard",
+      });
+      return;
+    }
+
+    setConfirmDialog({
+      isOpen: true,
+      title: "Are you sure you want to Add this Category ?",
+      subTitle: "You can't revert this operation",
+      action: "Save",
+      confirmBtnStyle: {
+        backgroundColor: "rgb(26, 188, 156)",
+        color: "white",
+      },
+      onConfirm: async () => {
+        let res = await CategoryService.saveEditor(categoryFormData);
+        if (res.status === 201) {
           setOpenAlert({
             open: true,
             alert: "Category Saved Successfully!!!",
@@ -171,17 +153,17 @@ function ManageEditor() {
           });
           setConfirmDialog({ isOpen: false });
           clearCategoryForm();
-        },
-      });
-    } else {
-      setOpenAlert({
-        open: true,
-        alert: res.response.data.message,
-        severity: "error",
-        variant: "standard",
-      });
-      setConfirmDialog({ isOpen: false });
-    }
+        } else {
+          setOpenAlert({
+            open: true,
+            alert: res.response.data.message,
+            severity: "error",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+        }
+      },
+    });
   };
 
   return (

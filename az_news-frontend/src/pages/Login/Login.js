@@ -55,11 +55,7 @@ function Login(props) {
       if (localStorage.length == 0) {
         navigate("*");
       } else {
-        navigate(
-          "/dashboard" /* , {
-                state: { username: jwt_decode(usernameFromToken).user },
-              } */
-        );
+        navigate("/dashboard");
       }
     } else {
       setOpenAlert({
@@ -141,25 +137,6 @@ function Login(props) {
             xs={12}
             className={styles.container__right}
           >
-            {/* <Grid
-              container
-              item
-              xl={12}
-              lg={12}
-              md={12}
-              sm={12}
-              xs={12}
-              mr={2}
-              className={styles.container__closeBtn}
-              justifyContent="end"
-            >
-              <NavLink to="/home" style={{ textDecoration: "none" }}>
-                <Typography variant="h6" className={styles.closeBtn}>
-                  X
-                </Typography>
-              </NavLink>
-            </Grid> */}
-
             <Grid
               container
               item
@@ -343,55 +320,6 @@ function Login(props) {
                       </button>
                     )}
                   </Grid>
-                  {/* <Grid
-                    container
-                    xl={12}
-                    lg={12}
-                    md={12}
-                    sm={12}
-                    xs={12}
-                    justifyContent="center"
-                  >
-                    {formType === "login" ? (
-                      <>
-                        <small style={{ margin: "8px 5px" }}>
-                          Not a Member?
-                        </small>
-                        <NavLink
-                          to="/register"
-                          style={{ margin: "5px 5px", textDecoration: "none" }}
-                          onClick={() => {
-                            setFormData({
-                              username: "",
-                              password: "",
-                              email: "",
-                            });
-                          }}
-                        >
-                          Sign In
-                        </NavLink>
-                      </>
-                    ) : (
-                      <>
-                        <small style={{ margin: "8px 5px" }}>
-                          Already a Member?
-                        </small>
-                        <NavLink
-                          to="/login"
-                          style={{ margin: "5px 5px", textDecoration: "none" }}
-                          onClick={() => {
-                            setFormData({
-                              username: "",
-                              password: "",
-                              email: "",
-                            });
-                          }}
-                        >
-                          Login
-                        </NavLink>
-                      </>
-                    )}
-                  </Grid> */}
                 </ValidatorForm>
               </Grid>
             </Grid>

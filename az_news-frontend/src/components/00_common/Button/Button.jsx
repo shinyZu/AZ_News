@@ -1,7 +1,5 @@
 import React from "react";
 import { Button } from "@mui/material";
-// import { styleSheet } from "./style";
-// import { withStyles } from "@mui/styles";
 
 function MyButton(props) {
   function handleButtonClick() {
@@ -23,7 +21,6 @@ function MyButton(props) {
       style={props.disabled ? props.btnDisableStyle : props.style}
     >
       {props.label}
-      {/* {this.returnChildren(label, children)} */}
     </Button>
   );
 }

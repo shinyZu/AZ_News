@@ -8,8 +8,6 @@ import {
   makeStyles,
   IconButton,
 } from "@material-ui/core";
-// import Controls from "./controls/Controls";
-// import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
 import HelpIcon from "@mui/icons-material/Help";
 import WarningIcon from "@mui/icons-material/Warning";
 import ErrorIcon from "@mui/icons-material/Error";
@@ -33,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   titleIconBlue: {
-    // backgroundColor: theme.palette.secondary.light,
     color: "#2c4ea9",
     "&:hover": {
       backgroundColor: "#2c4ea9",
@@ -47,13 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   titleIconGreen: {
-    // backgroundColor: theme.palette.secondary.light,
     color: "rgb(26, 188, 156)",
     "&:hover": {
       backgroundColor: "rgb(26, 188, 156)",
       color: "#fff",
       cursor: "default",
-      padding: "0",
+      padding: "10px",
+      borderRadius: "5px",
     },
     "& .MuiSvgIcon-root": {
       fontSize: "8rem",
@@ -61,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   titleIconRed: {
-    // backgroundColor: theme.palette.secondary.light,
     color: "red",
     "&:hover": {
       backgroundColor: "red",
@@ -109,6 +105,8 @@ function ConfirmDialog(props) {
           style={{
             backgroundColor: "#ccc",
             color: "#fff",
+            padding: "10px",
+            borderRadius: "5px",
           }}
           onClick={() => setConfirmDialog({ ...confirmDialog, isOpen: false })}
         />
@@ -121,7 +119,13 @@ function ConfirmDialog(props) {
         ) : null}
         <Button
           label={confirmDialog.action2 == "Deny" ? "Accept" : "Yes"}
-          style={confirmDialog.confirmBtnStyle}
+          // style={confirmDialog.confirmBtnStyle}
+          style={{
+            backgroundColor: "rgb(26, 188, 156)",
+            color: "#fff",
+            padding: "10px",
+            borderRadius: "5px",
+          }}
           onClick={confirmDialog.onConfirm}
         />
       </DialogActions>

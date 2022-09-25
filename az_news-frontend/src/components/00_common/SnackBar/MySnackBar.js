@@ -6,7 +6,6 @@ import Alert, { AlertProps } from "@mui/material/Alert";
 function MySnackBar(props) {
   const [open, setOpen] = useState(false);
 
-  // function handleClose() {}
   return (
     <>
       <Snackbar

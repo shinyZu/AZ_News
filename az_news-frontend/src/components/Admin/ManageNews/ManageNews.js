@@ -7,9 +7,9 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { AdapterDateFns } from "@mui/x-date-pickers-pro/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import { AdapterDateFns } from "@mui/x-date-pickers-pro/AdapterDateFns";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import MySnackBar from "../../00_common/SnackBar/MySnackBar";
 import ConfirmDialog from "../../00_common/ConfirmDialog/ConfirmDialog";
@@ -20,7 +20,7 @@ import CategoryService from "../../../services/CategoryService";
 import EditorService from "../../../services/EditorService";
 import NewsService from "../../../services/NewsService";
 
-import bg1 from "../../../assets/images/other/gallery1.png";
+// import bg1 from "../../../assets/images/other/gallery1.png";
 
 function ManageNews() {
   const [categoryList, setCategoryList] = useState([]);
@@ -94,7 +94,6 @@ function ManageNews() {
         setEditorList([]);
 
         editors.map((editor, index) => {
-          // let temp = { userId: user.id, username: user.username };
           setEditorList((prev) => {
             return [...prev, { editorId: editor._id, editorName: editor.name }];
           });
@@ -151,27 +150,7 @@ function ManageNews() {
       return;
     }
 
-    console.log(newsFormData);
-
-    // if (
-    //   newsFormData.headline != "" ||
-    //   newsFormData.text_body != "" ||
-    //   newsFormData.media_body == null ||
-    //   newsFormData.category != "" ||
-    //   newsFormData.date != "" ||
-    //   newsFormData.editor != ""
-    // ) {
-    //   setOpenAlert({
-    //     open: true,
-    //     alert: "No Media choosen!!",
-    //     severity: "error",
-    //     variant: "standard",
-    //   });
-    //   return;
-    // }
-
     // console.log(newsFormData);
-    // console.log(newsFormData.media_body);
 
     let data = new FormData();
     data.append("headline", newsFormData.headline);
@@ -214,47 +193,6 @@ function ManageNews() {
         }
       },
     });
-
-    //   let res = await NewsService.publish(data);
-    //   if (res.status === 201) {
-    //     // console.log(res.data);
-    //     if (newsFormData.media_body == null) {
-    //       setOpenAlert({
-    //         open: true,
-    //         alert: "No Media choosen!!",
-    //         severity: "error",
-    //         variant: "standard",
-    //       });
-    //     }
-    //     setConfirmDialog({
-    //       isOpen: true,
-    //       title: "Are you sure you want to Publish this News ?",
-    //       subTitle: "You can't revert this operation",
-    //       action: "Save",
-    //       confirmBtnStyle: {
-    //         backgroundColor: "rgb(26, 188, 156)",
-    //         color: "white",
-    //       },
-    //       onConfirm: () => {
-    //         setOpenAlert({
-    //           open: true,
-    //           alert: "News Published Successfully!!!",
-    //           severity: "success",
-    //           variant: "standard",
-    //         });
-    //         setConfirmDialog({ isOpen: false });
-    //         clearForm();
-    //       },
-    //     });
-    //   } else {
-    //     setOpenAlert({
-    //       open: true,
-    //       alert: res.response.data.message,
-    //       severity: "error",
-    //       variant: "standard",
-    //     });
-    //     setConfirmDialog({ isOpen: false });
-    //   }
   };
 
   return (
@@ -392,8 +330,8 @@ function ManageNews() {
                     className="text-center border-l-4 border-red-500  w-full p-3 rounded text-sm  outline-none  focus:ring-0 bg-transparent"
                     // label="Date"
                     // value={newsFormData.date}
-                    value={date}
                     // inputFormat="dd/MM/yyyy"
+                    value={date}
                     style={{ width: "80%" }}
                     onChange={(newValue) => {
                       setDate(newValue);
@@ -425,9 +363,9 @@ function ManageNews() {
                   id="editor"
                   disablePortal
                   fullWidth
-                  // style={{ width: "80%" }}
                   options={editorList}
                   getOptionLabel={(option) => option.editorName}
+                  // style={{ width: "80%" }}
                   // value={newsFormData.editor}
                   inputValue={editorName}
                   renderInput={(params) => (
@@ -529,7 +467,6 @@ function ManageNews() {
                 // alt={categoryName}
                 loading="lazy"
                 style={{
-                  // border: "2px solid red",
                   width: "100%",
                   height: "100%",
                 }}
