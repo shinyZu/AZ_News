@@ -1,3 +1,20 @@
+# AZ News 
+
+<br>
+
+### This is a simple news website with a simple admin dashboard done using JavaScript
+
+<br>
+
+## Technology Stack :
+
+- MongoDB
+- Express JS
+- React JS
+- Node JS
+
+<br>
+
 <img src = "az_news-frontend/src/assets/screenshots/5.png" alt = "sample"> <br><br>
 <img src = "az_news-frontend/src/assets/screenshots/6.png" alt = "sample"> <br><br>
 <img src = "az_news-frontend/src/assets/screenshots/7.png" alt = "sample"> <br><br>
