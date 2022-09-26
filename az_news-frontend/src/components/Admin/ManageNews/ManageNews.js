@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation, NavLink, Navigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -22,16 +23,14 @@ import NewsService from "../../../services/NewsService";
 
 // import bg1 from "../../../assets/images/other/gallery1.png";
 
-function ManageNews() {
+function ManageNews(props) {
   const [categoryList, setCategoryList] = useState([]);
   const [editorList, setEditorList] = useState([]);
-
   const [categoryName, setCategoryName] = useState("");
   const [editorName, setEditorName] = useState("");
-
   const [media, setMedia] = useState(null);
-
   const [date, setDate] = useState(null);
+
   const [newsFormData, setNewsFormdata] = useState({
     headline: "",
     text_body: "",
@@ -56,12 +55,56 @@ function ManageNews() {
     action: "",
   });
 
-  // const data = new FormData();
+  const [newsData, setNewsData] = useState([]);
+  const [action, setAction] = useState("Normal");
+
+  const location = useLocation();
 
   useEffect(() => {
     getAllCategories();
     getAllEditors();
   }, []);
+
+  useEffect(() => {
+    if (location.state == null) {
+      console.log("ManageNews state is null");
+    } else {
+      if (location.state != null || location.state.news != null) {
+        const { news, purpose } = location.state;
+        setNewsData(news);
+        setAction(purpose);
+        loadDataToFields();
+      }
+    }
+
+    getEditorName(newsData.editor);
+    getCategoryName(newsData.category);
+  }, [newsData, action]);
+
+  const getEditorName = async (id) => {
+    let res = await EditorService.searchById(id);
+    if (res.status == 200) {
+      setEditorName(res.data.name);
+    }
+  };
+
+  const getCategoryName = async (code) => {
+    let res = await CategoryService.searchById(code);
+    if (res.status == 200) {
+      setCategoryName(res.data.category);
+    }
+  };
+
+  const loadDataToFields = () => {
+    setNewsFormdata({
+      headline: newsData.headline,
+      text_body: newsData.text_body,
+      media_body: newsData.media_body,
+      category: newsData.category,
+      date: newsData.date,
+      editor: newsData.editor,
+    });
+  };
 
   const getAllCategories = async () => {
     let res = await CategoryService.getAll();
@@ -195,6 +238,66 @@ function ManageNews() {
     });
   };
 
+  let data = new FormData();
+  const updateNews = async () => {
+    console.log(newsFormData);
+    if (
+      newsFormData.headline === "" ||
+      newsFormData.text_body === "" ||
+      newsFormData.media_body == null ||
+      newsFormData.category === "" ||
+      newsFormData.date === "" ||
+      newsFormData.editor === ""
+    ) {
+      setOpenAlert({
+        open: true,
+        alert: "Please fill all inputs!",
+        severity: "error",
+        variant: "standard",
+      });
+      return;
+    }
+
+    data.append("headline", newsFormData.headline);
+    data.append("text_body", newsFormData.text_body);
+    data.append("media_body", newsFormData.media_body);
+    data.append("category", newsFormData.category);
+    data.append("date", newsFormData.date);
+    data.append("editor", newsFormData.editor);
+
+    setConfirmDialog({
+      isOpen: true,
+      title: "Are you sure you want to Update this News ?",
+      subTitle: "You can't revert this operation",
+      action: "Update",
+      confirmBtnStyle: {
+        backgroundColor: "rgb(26, 188, 156)",
+        color: "white",
+      },
+      onConfirm: async () => {
+        let res = await NewsService.updateNews(newsData._id, data);
+        if (res.status === 200) {
+          setOpenAlert({
+            open: true,
+            alert: "News Updated Successfully!!!",
+            severity: "success",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+          clearForm();
+        } else {
+          setOpenAlert({
+            open: true,
+            alert: res.response.data.message,
+            severity: "error",
+            variant: "standard",
+          });
+          setConfirmDialog({ isOpen: false });
+        }
+      },
+    });
+  };
+
   return (
     <>
       <Grid
@@ -236,7 +339,6 @@ function ManageNews() {
               style={{ width: "80%" /* , marginBottom: "7vh" */ }}
               options={categoryList}
               getOptionLabel={(option) => option.categoryTitle}
-              // value={newsFormData.category}
               inputValue={categoryName}
               renderInput={(params) => (
                 <TextField {...params} label="Category" />
@@ -327,9 +429,6 @@ function ManageNews() {
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DatePicker
                     className="text-center border-l-4 border-red-500  w-full p-3 rounded text-sm  outline-none  focus:ring-0 bg-transparent"
-                    // label="Date"
-                    // value={newsFormData.date}
-                    // inputFormat="dd/MM/yyyy"
                     value={date}
                     style={{ width: "80%" }}
                     onChange={(newValue) => {
@@ -364,8 +463,6 @@ function ManageNews() {
                   fullWidth
                   options={editorList}
                   getOptionLabel={(option) => option.editorName}
-                  // style={{ width: "80%" }}
-                  // value={newsFormData.editor}
                   inputValue={editorName}
                   renderInput={(params) => (
                     <TextField {...params} label="Editor" />
@@ -504,7 +601,14 @@ function ManageNews() {
             </button>
             <button className={styles.btn__delete}>Delete</button>
             <button className={styles.btn__preview}>Preview</button>
-            <button className={styles.btn__update}>Update</button>
+            <button
+              className={styles.btn__update}
+              onClick={() => {
+                updateNews();
+              }}
+            >
+              Update
+            </button>
             <button
               className={styles.btn__publish}
               onClick={() => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Footer from "../../components/Home/Footer/Footer";
 
 import Header from "../../components/Home/Header/Header";
@@ -22,19 +22,10 @@ import img8 from "../../assets/images/entertainment/entertainment1.jpeg";
 import NewsService from "../../services/NewsService";
 
 function NewsPage() {
-  // const [leftBg1, setLeftBg1] = useState(left__bg1);
-  // const [leftBg2, setLeftBg2] = useState(left__bg2);
-  // const [leftBg3, setLeftBg3] = useState(left__bg3);
-  // const [leftBg4, setLeftBg4] = useState(left__bg4);
-
-  // const [rightBg1, setRightBg1] = useState(right__bg1);
-  // const [rightBg2, setRightBg2] = useState(right__bg2);
-  // const [rightBg3, setRightBg3] = useState(right__bg3);
-  // const [rightBg4, setRightBg4] = useState(right__bg4);
-
   const [newsList, setNewsList] = useState([]);
-
   const imageArray = [img1, img2, img3, img4, img5, img6, img7, img8];
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllNews();
@@ -45,13 +36,8 @@ function NewsPage() {
 
     if (res.status == 200) {
       setNewsList(res.data);
-      // console.log(newsList);
     }
   };
-
-  // // const formatDate = (date) => {
-  // //   return new Date(date).toISOString().split("T")[0]; // yyyy-MM-dd
-  // // }
 
   return (
     <>
@@ -60,6 +46,7 @@ function NewsPage() {
 
       <Grid
         container
+        item
         xl={12}
         lg={12}
         md={12}
@@ -70,13 +57,23 @@ function NewsPage() {
       >
         {newsList.map((news, index) => {
           return (
-            <NewsCard
-              key={news._id}
-              category={news.category}
-              headline={news.headline}
-              date={news.date}
-              image={imageArray[index]}
-            />
+            <Link
+              key={index}
+              to="/news/detail"
+              state={{
+                news: news,
+                image: imageArray[index],
+              }}
+              className={styles.card_text}
+            >
+              <NewsCard
+                key={news._id}
+                category={news.category}
+                headline={news.headline}
+                date={news.date}
+                image={imageArray[index]}
+              />
+            </Link>
           );
         })}
       </Grid>

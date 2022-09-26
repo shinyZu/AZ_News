@@ -7,7 +7,7 @@ function RequireAuth({ children }) {
   console.log(storage);
 
   if (storage.length == 0) {
-    console.log("User still not login... cannot access profile");
+    // console.log("User still not login... cannot access profile");
     return <Navigate to="*" /* state={{ path: location.pathname }}  */ />;
   }
   return children;

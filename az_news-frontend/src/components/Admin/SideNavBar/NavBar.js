@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, NavLink, Navigate } from "react-router-dom";
 
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -119,10 +119,17 @@ export default function NavBar() {
   const [displayManageNews, setDisplayManageNews] = useState(false);
   const [displayManageGallery, setDisplayManageGallery] = useState(false);
   const [title, setTitle] = useState("Dashboard");
+  const [action, setAction] = useState("");
 
   useEffect(() => {
     document.body.style.width = "100%";
-  });
+  }, []);
+
+  const location = useLocation();
+
+  if (location.state == null || location.state.news == null) {
+    console.log("NavBar state is null");
+  }
 
   const navigate = useNavigate();
 
@@ -175,95 +182,90 @@ export default function NavBar() {
         <Divider />
 
         <List>
-          {[
-            "Dashboard",
-            "Add New",
-            // "Manage Categories",
-            "Manage News",
-            "Manage Gallery",
-          ].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 70,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+          {["Dashboard", "Add New", "Manage News", "Manage Gallery"].map(
+            (text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: "block" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 70,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  {index === 0 ? (
-                    <GridViewIcon
-                      className={styles.nav__icons}
-                      onClick={() => {
-                        setDisplayDashboard(true);
-                        setTitle("Dashbaord");
-                        setDisplayManageEditors(false);
-                        setDisplayManageCategories(false);
-                        setDisplayManageNews(false);
-                        setDisplayManageGallery(false);
-                      }}
-                    />
-                  ) : index === 1 ? (
-                    <GroupAddIcon
-                      className={styles.nav__icons}
-                      onClick={() => {
-                        setDisplayDashboard(false);
-                        setDisplayManageEditors(true);
-                        setTitle("Editors and Category");
-                        setDisplayManageCategories(false);
-                        setDisplayManageNews(false);
-                        setDisplayManageGallery(false);
-                      }}
-                    />
-                  ) : //  : index === 2 ? (
-                  //   <CategoryIcon
-                  //     className={styles.nav__icons}
-                  //     onClick={() => {
-                  //       setDisplayDashboard(false);
-                  //       setDisplayManageEditors(false);
-                  //       setDisplayManageCategories(true);
-                  //       setTitle("Manage Categories");
-                  //       setDisplayManageNews(false);
-                  //       setDisplayManageGallery(false);
-                  //     }}
-                  //   />
-                  // )
-                  index === 2 ? (
-                    <NewspaperIcon
-                      className={styles.nav__icons}
-                      onClick={() => {
-                        setDisplayDashboard(false);
-                        setDisplayManageEditors(false);
-                        setDisplayManageCategories(false);
-                        setDisplayManageNews(true);
-                        setTitle("Manage News");
-                        setDisplayManageGallery(false);
-                      }}
-                    />
-                  ) : (
-                    <AddPhotoAlternateIcon
-                      className={styles.nav__icons}
-                      onClick={() => {
-                        setDisplayDashboard(false);
-                        setDisplayManageEditors(false);
-                        setDisplayManageCategories(false);
-                        setDisplayManageNews(false);
-                        setDisplayManageGallery(true);
-                        // setTitle("Manage Gallery");
-                      }}
-                    />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {index === 0 ? (
+                      <GridViewIcon
+                        className={styles.nav__icons}
+                        onClick={() => {
+                          setDisplayDashboard(true);
+                          setTitle("Dashbaord");
+                          setDisplayManageEditors(false);
+                          setDisplayManageCategories(false);
+                          setDisplayManageNews(false);
+                          setDisplayManageGallery(false);
+                          navigate("/admin/dashboard");
+                        }}
+                      />
+                    ) : index === 1 ? (
+                      <GroupAddIcon
+                        className={styles.nav__icons}
+                        onClick={() => {
+                          setDisplayDashboard(false);
+                          setDisplayManageEditors(true);
+                          setTitle("Editors and Category");
+                          setDisplayManageCategories(false);
+                          setDisplayManageNews(false);
+                          setDisplayManageGallery(false);
+                          navigate("/admin/add_new");
+                        }}
+                      />
+                    ) : index === 2 ? (
+                      <NewspaperIcon
+                        className={styles.nav__icons}
+                        onClick={() => {
+                          setDisplayDashboard(false);
+                          setDisplayManageEditors(false);
+                          setDisplayManageCategories(false);
+                          setDisplayManageNews(true);
+                          setTitle("Manage News");
+                          setDisplayManageGallery(false);
+                          navigate("/admin/publish", {
+                            state: {
+                              news:
+                                location.state.news != null ||
+                                location.news != null
+                                  ? location.state.news
+                                  : null,
+                              purpose:
+                                location.state != null ? "Edit" : "Normal",
+                            },
+                          });
+                        }}
+                      />
+                    ) : (
+                      <AddPhotoAlternateIcon
+                        className={styles.nav__icons}
+                        onClick={() => {
+                          setDisplayDashboard(false);
+                          setDisplayManageEditors(false);
+                          setDisplayManageCategories(false);
+                          setDisplayManageNews(false);
+                          setDisplayManageGallery(true);
+                        }}
+                      />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            )
+          )}
         </List>
 
         <div
@@ -275,8 +277,7 @@ export default function NavBar() {
             justifyContent: "end",
           }}
         >
-          {/* <Divider style={{ borderColor: "white" }} /> */}
-          <List /* style={{ border: "2px solid red" }} */>
+          <List>
             {["Logout"].map((text, index) => (
               <ListItem key={text} disablePadding sx={{ display: "block" }}>
                 <ListItemButton
@@ -323,9 +324,6 @@ export default function NavBar() {
         ) : (
           <ManageNews />
         )}
-        {/* : (
-          <ManageGallery />
-        ) */}
       </Box>
     </Box>
   );

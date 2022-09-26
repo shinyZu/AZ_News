@@ -80,14 +80,11 @@ function ConfirmDialog(props) {
       <DialogTitle className={classes.dialogTitle}>
         <IconButton
           disableRipple
-          /* className={classes.titleIconBlue} */
           className={
             confirmDialog.action == "Delete"
               ? classes.titleIconRed
               : confirmDialog.action == "Save" ||
-                confirmDialog.action == "Add" ||
-                confirmDialog.action == "Return" ||
-                confirmDialog.action == "Active"
+                confirmDialog.action == "Update"
               ? classes.titleIconGreen
               : classes.titleIconBlue
           }
@@ -118,8 +115,7 @@ function ConfirmDialog(props) {
           />
         ) : null}
         <Button
-          label={confirmDialog.action2 == "Deny" ? "Accept" : "Yes"}
-          // style={confirmDialog.confirmBtnStyle}
+          label={confirmDialog.action == "Deny" ? "Accept" : "Yes"}
           style={{
             backgroundColor: "rgb(26, 188, 156)",
             color: "#fff",

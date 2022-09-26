@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import CardTag from "../../../components/00_common/CardTag/CardTag";
 import CategoryService from "../../../services/CategoryService";
@@ -69,12 +69,13 @@ function NewsCard(props) {
       {path === "news" && (
         <Grid
           container
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
+          item
+          xl={12}
+          lg={12}
+          md={12}
+          sm={12}
           xs={12}
-          // className={styles.container__main}
+          className={styles.container__main}
         >
           <Grid
             container
@@ -103,12 +104,13 @@ function NewsCard(props) {
       {path === "sports" && categoryName === "Sports" && (
         <Grid
           container
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
+          item
+          xl={12}
+          lg={12}
+          md={12}
+          sm={12}
           xs={12}
-          // className={styles.container__main}
+          className={styles.container__main}
         >
           <Grid
             container
@@ -137,12 +139,13 @@ function NewsCard(props) {
       {path === "tech" && categoryName === "Tech" && (
         <Grid
           container
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
+          item
+          xl={12}
+          lg={12}
+          md={12}
+          sm={12}
           xs={12}
-          // className={styles.container__main}
+          className={styles.container__main}
         >
           <Grid
             container

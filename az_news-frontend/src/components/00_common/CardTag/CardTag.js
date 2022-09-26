@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 
 import styles from "./CardTag.module.css";
+import CategoryChip from "./Chip";
 
 /** Left bottom card tag of News Card with Headline & Date on it */
 function CardTag(props) {
@@ -21,13 +22,13 @@ function CardTag(props) {
         justifyContent="flex-end"
       >
         {props.displayStatus && (
-          <Chip
+          <CategoryChip
             label={props.category}
-            size="small"
-            className={styles.chip__text}
+            chip_color={props.chip_color}
             style={{
               border: `1px solid ${props.chip_color}`,
               backgroundColor: `${props.chip_color}`,
+              color: "white",
             }}
           />
         )}

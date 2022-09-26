@@ -43,6 +43,20 @@ class NewsService {
     });
     return await promise;
   };
+
+  updateNews = async (id, data) => {
+    const promise = new Promise((resolve, reject) => {
+      axios
+        .put("news/" + id, data)
+        .then((res) => {
+          return resolve(res);
+        })
+        .catch((er) => {
+          return resolve(er);
+        });
+    });
+    return await promise;
+  };
 }
 
 export default new NewsService();

@@ -6,11 +6,12 @@
 .chip__text {
   width: fit-content;
   font-family: "Bree Serif", serif !important;
-  color: white !important;
+  color: white;
   margin-bottom: 2%;
   border-radius: 5px !important;
   font-size: 1vw !important;
-  padding: 0vw !important;
+  /* font-size: large !important; */
+  /* padding: 0vw !important; */
 }
 
 .headline_text {

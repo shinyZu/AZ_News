@@ -1,0 +1,53 @@
+.container__main {
+  /* border: 2px solid red; */
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.container__1 {
+  /* border: 2px solid blue; */
+  margin-bottom: 2vh !important;
+}
+
+.container__2 {
+  /* border: 2px solid green; */
+  margin-bottom: 2vh;
+}
+
+.btn__share {
+  border: 1px solid black !important;
+}
+
+.btn__share:hover {
+  border: 1px solid #e74c3c !important;
+  background-color: #e74c3c !important;
+  cursor: pointer;
+  color: white;
+}
+
+.container__3 {
+  /* border: 2px solid red; */
+}
+
+.card_text {
+  text-decoration: none;
+}
+
+.container__4 {
+  /* border: 2px solid red; */
+  margin-bottom: 2vh;
+}
+
+.container__image__box {
+  /* border: 2px solid blue; */
+  height: 60vh;
+}
+
+.container__5 {
+  /* border: 2px solid blue; */
+}
+
+.description {
+  font-weight: 100 !important;
+  font-size: large !important;
+}

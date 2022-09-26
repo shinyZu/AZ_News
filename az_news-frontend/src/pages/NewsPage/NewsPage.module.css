@@ -1,9 +1,13 @@
 .container {
   /* border: 2px solid red; */
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 5vh !important;
+  margin-bottom: 5vh !important;
 }
 
 /* .container__left {
   border: 2px solid blue;
 } */
+
+.card_text {
+  text-decoration: none;
+}

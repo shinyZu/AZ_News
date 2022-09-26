@@ -1,10 +1,16 @@
+.container__main {
+  /* border: 2px solid red; */
+  width: 100%;
+}
+
 .container__card {
   /* border: 2px solid blue; */
-  /* height: 24%; */
-  height: 40vh;
   /* width: 45% !important; */
   /* max-width: 200px !important; */
   /* min-width: 49%; */
+  height: 40vh;
+  /* width: 100% !important; */
+  width: 32vw !important;
   cursor: pointer;
   background-size: cover;
   background-position: center;

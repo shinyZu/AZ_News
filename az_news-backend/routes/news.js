@@ -136,26 +136,26 @@ router.put("/:id", cors(), upload.single("media_body"), async (req, res) => {
 
   News.findById(req.params.id, (err2, resultNews) => {
     if (err2) {
-      return res.status(500).send(err2);
+      return res.status(500).json({ message: err2 });
     }
     if (!resultNews) {
-      return res.status(404).send("No such News!");
+      return res.status(404).json({ message: "No such News!" });
     }
 
     Editor.findById(body.editor, (err1, editor) => {
       if (err1) {
-        return res.status(500).send(err1);
+        return res.status(500).json({ message: err1 });
       }
       if (!editor) {
-        return res.status(404).send("Editor doesn't exist!");
+        return res.status(404).json({ message: "Editor doesn't exist!" });
       }
 
       Category.findById(body.category, (err1, category) => {
         if (err1) {
-          return res.status(500).send(err1);
+          return res.status(500).json({ message: err1 });
         }
         if (!category) {
-          return res.status(404).send("Category doesn't exist!");
+          return res.status(404).json({ message: "Category doesn't exist!" });
         }
 
         if (req.file) {
@@ -177,12 +177,14 @@ router.put("/:id", cors(), upload.single("media_body"), async (req, res) => {
 
         resultNews.save((err3, result) => {
           if (err3) {
-            return res.status(500).send(err3.message.split(":")[2]);
+            return res
+              .status(500)
+              .json({ message: err3.message.split(":")[2] });
           }
           if (!result) {
-            return res.status(404).send("No such News!");
+            return res.status(404).json({ message: "No such News!" });
           }
-          res.status(200).send("News Updated Successfully!!!");
+          res.status(200).json({ message: "News Updated Successfully!!!" });
         });
       });
     });

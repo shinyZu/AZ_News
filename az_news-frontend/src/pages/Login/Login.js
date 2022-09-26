@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation, NavLink } from "react-router-dom";
+import { useNavigate, useLocation, NavLink, Navigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import PersonIcon from "@mui/icons-material/Person";
@@ -20,6 +20,7 @@ function Login(props) {
   });
 
   const location = useLocation();
+  const { purpose, news } = location.state;
   const formType = location.pathname.split("/")[1];
 
   const navigate = useNavigate();
@@ -55,7 +56,10 @@ function Login(props) {
       if (localStorage.length == 0) {
         navigate("*");
       } else {
-        navigate("/dashboard");
+        console.log(news);
+        navigate("/admin/dashboard", {
+          state: { news: news, purpose: purpose },
+        });
       }
     } else {
       setOpenAlert({
@@ -68,14 +72,13 @@ function Login(props) {
   };
 
   const registerUser = () => {
-    console.log(formData);
     setOpenAlert({
       open: true,
       alert: "User Signed In Successfully!",
       severity: "success",
       variant: "standard",
     });
-    navigate("/dashboard");
+    navigate("/admin");
   };
 
   return (
@@ -302,7 +305,6 @@ function Login(props) {
                       <button
                         className={styles.btn_login_signIn}
                         onClick={(e) => {
-                          console.log(e);
                           setCurrentBtn(e.target.innerText);
                         }}
                       >
