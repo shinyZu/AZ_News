@@ -8,6 +8,8 @@ import Login from "./pages/Login/Login";
 import AdminDashbaord from "./pages/Admin/Dashboard";
 import NotFound from "./pages/Session/NotFound";
 import RequireAuth from "./pages/Session/RequireAuth";
+import Sports from "./pages/SportsNews/SportsNews";
+import TechNews from "./pages/TechNews/TechNews";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/register" element={<Login />} />
 
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/sports" element={<Sports />} />
+        <Route path="/tech" element={<TechNews />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route
           path="/dashboard"

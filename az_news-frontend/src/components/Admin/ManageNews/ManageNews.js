@@ -268,7 +268,6 @@ function ManageNews() {
                 style={{ width: "80%" }}
                 value={newsFormData.headline}
                 onChange={(e) => {
-                  console.log(e);
                   setNewsFormdata({
                     ...newsFormData,
                     headline: e.target.value,
@@ -344,7 +343,7 @@ function ManageNews() {
                     renderInput={(params) => (
                       <TextField {...params} fullWidth />
                     )}
-                    disablePast
+                    // disablePast
                   />
                 </LocalizationProvider>
               </Grid>

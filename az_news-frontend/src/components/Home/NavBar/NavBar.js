@@ -47,6 +47,18 @@ function NavBar(props) {
           </NavLink>
 
           <NavLink
+            to="/sports"
+            className={styles.nav__text}
+            style={navLinkStyle}
+          >
+            <Tab value="2" className={styles.nav__text} label="Sports" />
+          </NavLink>
+
+          <NavLink to="/tech" className={styles.nav__text} style={navLinkStyle}>
+            <Tab value="2" className={styles.nav__text} label="Tech" />
+          </NavLink>
+
+          <NavLink
             to="/gallery"
             className={styles.nav__text}
             style={navLinkStyle}

@@ -32,8 +32,6 @@ function NewsPage() {
   // const [rightBg3, setRightBg3] = useState(right__bg3);
   // const [rightBg4, setRightBg4] = useState(right__bg4);
 
-  const [monthDate, setMonthDate] = useState("");
-
   const [newsList, setNewsList] = useState([]);
 
   const imageArray = [img1, img2, img3, img4, img5, img6, img7, img8];
@@ -54,18 +52,6 @@ function NewsPage() {
   // // const formatDate = (date) => {
   // //   return new Date(date).toISOString().split("T")[0]; // yyyy-MM-dd
   // // }
-
-  // const getFormatedDate = (date) => {
-  //   let d = new Date(date);
-  //   let month = d.toLocaleString("default", { month: "short" });
-  //   // console.log(month); // prints name of the month
-
-  //   let year = d.getFullYear();
-  //   // console.log(day);
-
-  //   setMonthDate(year);
-  //   // console.log(monthDate);
-  // };
 
   return (
     <>
@@ -88,144 +74,12 @@ function NewsPage() {
               key={news._id}
               category={news.category}
               headline={news.headline}
-              date="Jan 01"
+              date={news.date}
               image={imageArray[index]}
             />
           );
         })}
-
-        {/* <NewsCard
-          category="Business"
-          headline="Headline 1"
-          date="Jan 01"
-          image={leftBg1}
-        />
-        <NewsCard
-          category="International"
-          headline="Headline 2"
-          date="Jan 01"
-          image={leftBg2}
-        />
-        <NewsCard
-          category="Sports"
-          headline="Headline 3"
-          date="Jan 01"
-          image={leftBg3}
-        />
-        <NewsCard
-          category="Tech"
-          headline="Headline 4"
-          date="Jan 01"
-          image={leftBg4}
-        />
-
-        <NewsCard
-          category="International"
-          headline="Headline 5"
-          date="Jan 01"
-          image={leftBg2}
-        />
-        <NewsCard
-          category="Sports"
-          headline="Headline 6"
-          date="Jan 01"
-          image={leftBg3}
-        />
-        <NewsCard
-          category="Tech"
-          headline="Headline 7"
-          date="Jan 01"
-          image={leftBg4}
-        /> */}
-
-        {/* --------------------Left Column------------------------- */}
-        {/* <Grid
-          container
-          item
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
-          xs={5.9}
-          className={styles.container__left}
-          alignContent="space-between"
-        >
-          <NewsCard
-            category="Business"
-            headline="Headline 1"
-            date="Jan 01"
-            image={leftBg1}
-          />
-
-          <NewsCard
-            category="International"
-            headline="Headline 3"
-            date="Jan 01"
-            image={leftBg2}
-          />
-
-          <NewsCard
-            category="Sports"
-            headline="Headline 5"
-            date="Jan 01"
-            image={leftBg3}
-          />
-
-          <NewsCard
-            category="Tech"
-            headline="Headline 7"
-            date="Jan 01"
-            image={leftBg4}
-          />
-          <NewsCard
-            category="Tech"
-            headline="Headline 7"
-            date="Jan 01"
-            image={leftBg4}
-          />
-        </Grid> */}
-        {/* --------------------Right Column------------------------- */}
-        {/* <Grid
-          container
-          item
-          xl={5.9}
-          lg={5.9}
-          md={5.9}
-          sm={5.9}
-          xs={5.9}
-          className={styles.container__right}
-          alignContent="space-between"
-        >
-          <NewsCard
-            category="Sports"
-            headline="Headline 2"
-            date="Jan 01"
-            image={rightBg1}
-          />
-
-          <NewsCard
-            category="Business"
-            headline="Headline 4"
-            date="Jan 01"
-            image={rightBg2}
-          />
-
-          <NewsCard
-            category="Entertainment"
-            headline="Headline 6"
-            date="Jan 01"
-            image={rightBg3}
-          />
-
-          <NewsCard
-            category="Health"
-            headline="Headline 8"
-            date="Jan 01"
-            image={rightBg4}
-          />
-        </Grid> */}
       </Grid>
-
       <Footer />
     </>
   );
