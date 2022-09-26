@@ -13,11 +13,12 @@ import styles from "./NewsPage.module.css";
 import img1 from "../../assets/images/business/business1.jpeg";
 import img2 from "../../assets/images/sports/sports2.jpeg";
 import img3 from "../../assets/images/other/health1.jpeg";
-import img4 from "../../assets/images/other/queen.jpg";
+import img4 from "../../assets/images/other/international1.jpeg";
 import img5 from "../../assets/images/tech/tech2.png";
 import img6 from "../../assets/images/sports/sports1.jpeg";
-import img7 from "../../assets/images/entertainment/entertainment2.jpeg";
-import img8 from "../../assets/images/entertainment/entertainment1.jpeg";
+import img7 from "../../assets/images/entertainment/entertainment1.jpeg";
+import img8 from "../../assets/images/other/queen.jpg";
+// import img8 from "../../assets/images/entertainment/entertainment1.jpeg";
 
 import NewsService from "../../services/NewsService";
 

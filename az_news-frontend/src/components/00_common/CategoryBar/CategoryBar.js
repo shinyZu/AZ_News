@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { useNavigate, useLocation, NavLink, Navigate } from "react-router-dom";
 
 import styles from "./CategoryBar.module.css";
 
@@ -61,10 +62,23 @@ function CategoryBar(props) {
             xs={3}
             className={styles.container__viewall}
             alignItems="center"
+            justifyContent="end"
           >
-            <Typography variant="h7" className={styles.viewall__text}>
+            {/* <Typography variant="h7" className={styles.viewall__text} >
               View All
-            </Typography>
+            </Typography> */}
+            <NavLink
+              to="/news"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                margin: "5px 15px",
+              }}
+            >
+              <Typography variant="h7" className={styles.viewall__text}>
+                View All
+              </Typography>
+            </NavLink>
           </Grid>
         </Grid>
       </Grid>

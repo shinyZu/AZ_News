@@ -239,7 +239,7 @@ export default function NavBar() {
                             state: {
                               news:
                                 location.state.news != null ||
-                                location.news != null
+                                location.state != null
                                   ? location.state.news
                                   : null,
                               purpose:

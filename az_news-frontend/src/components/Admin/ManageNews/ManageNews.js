@@ -66,7 +66,7 @@ function ManageNews(props) {
   }, []);
 
   useEffect(() => {
-    if (location.state == null) {
+    if (location.state == null || location.state.news == null) {
       console.log("ManageNews state is null");
     } else {
       if (location.state != null || location.state.news != null) {

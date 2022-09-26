@@ -20,8 +20,11 @@ function Login(props) {
   });
 
   const location = useLocation();
-  const { purpose, news } = location.state;
   const formType = location.pathname.split("/")[1];
+
+  if (location.state == null || location.state.news == null) {
+    console.log("NavBar state is null");
+  }
 
   const navigate = useNavigate();
   let username = "shinyZu";
@@ -56,9 +59,11 @@ function Login(props) {
       if (localStorage.length == 0) {
         navigate("*");
       } else {
-        console.log(news);
         navigate("/admin/dashboard", {
-          state: { news: news, purpose: purpose },
+          state: {
+            news: location.state != null ? location.state.news : null,
+            purpose: location.state != null ? "Edit" : "Normal",
+          },
         });
       }
     } else {
