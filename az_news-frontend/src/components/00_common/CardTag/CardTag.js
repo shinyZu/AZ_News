@@ -4,6 +4,7 @@ import Chip from "@mui/material/Chip";
 
 import styles from "./CardTag.module.css";
 
+/** Left bottom card tag of News Card with Headline & Date on it */
 function CardTag(props) {
   return (
     <>
@@ -31,10 +32,10 @@ function CardTag(props) {
           />
         )}
 
-        <Typography variant="h5" className={styles.tag_text}>
+        <Typography variant="h5" className={styles.headline_text}>
           {props.headline}
         </Typography>
-        <Typography variant="h7" className={styles.viewall_text}>
+        <Typography variant="h7" className={styles.date_text}>
           {props.date}
         </Typography>
       </Grid>

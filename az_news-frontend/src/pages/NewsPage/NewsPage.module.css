@@ -1,6 +1,5 @@
 .container {
   /* border: 2px solid red; */
-  height: 150vh;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
@@ -8,37 +7,3 @@
 /* .container__left {
   border: 2px solid blue;
 } */
-
-.container__left__1,
-.container__left__2,
-.container__left__3,
-.container__left__4,
-.container__right__1,
-.container__right__2,
-.container__right__3,
-.container__right__4 {
-  /* border: 2px solid red; */
-  height: 24%;
-  cursor: pointer;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
-/* .container__right {
-  border: 2px solid blue;
-} */
-
-.container__left__1:hover,
-.container__left__2:hover,
-.container__left__3:hover,
-.container__left__4:hover,
-.container__right__1:hover,
-.container__right__2:hover,
-.container__right__3:hover,
-.container__right__4:hover {
-  transition: background-position 1s;
-  /* background-position: -5px; */
-  transition: padding 1s;
-  padding: 5px;
-}

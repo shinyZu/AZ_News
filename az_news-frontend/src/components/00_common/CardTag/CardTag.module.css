@@ -13,14 +13,14 @@
   padding: 0vw !important;
 }
 
-.tag_text {
+.headline_text {
   /* border: 2px solid yellow; */
   color: white;
   font-family: "Bree Serif", serif !important;
   font-size: 1.5vw !important;
 }
 
-.viewall_text {
+.date_text {
   color: white;
   font-size: 0.8vw !important;
 }

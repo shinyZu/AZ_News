@@ -16,6 +16,20 @@ class CategoryService {
     return await promise;
   };
 
+  searchById = async (id) => {
+    const promise = new Promise((resolve, reject) => {
+      axios
+        .get("category/" + id)
+        .then((res) => {
+          return resolve(res);
+        })
+        .catch((er) => {
+          return resolve(er);
+        });
+    });
+    return await promise;
+  };
+
   saveEditor = async (data) => {
     const promise = new Promise((resolve, reject) => {
       axios

@@ -1,0 +1,19 @@
+.container__card {
+  /* border: 2px solid blue; */
+  /* height: 24%; */
+  height: 40vh;
+  /* width: 45% !important; */
+  /* max-width: 200px !important; */
+  /* min-width: 49%; */
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  margin-bottom: 2vh !important;
+}
+
+.container__card:hover {
+  transition: background-position 1s;
+  transition: padding 1s;
+  padding: 5px;
+}

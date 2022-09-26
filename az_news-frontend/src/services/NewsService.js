@@ -16,6 +16,20 @@ class NewsService {
     return await promise;
   };
 
+  getImage = async (fileName) => {
+    const promise = new Promise((resolve, reject) => {
+      axios
+        .get("news/file" + fileName)
+        .then((res) => {
+          return resolve(res);
+        })
+        .catch((er) => {
+          return resolve(er);
+        });
+    });
+    return await promise;
+  };
+
   publish = async (data) => {
     const promise = new Promise((resolve, reject) => {
       axios
