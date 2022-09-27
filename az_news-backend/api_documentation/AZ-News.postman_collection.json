@@ -15,10 +15,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/editor",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/editor",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -46,10 +49,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/editor",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/editor",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -77,10 +83,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/editor/632c337da72cfe2866364e2a",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/editor/632c337da72cfe2866364e2a",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -100,10 +109,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/editor/6332227b3c8ca595f428095a",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/editor/6332227b3c8ca595f428095a",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -123,10 +135,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/editor/632c398cedb282d121416e74",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/editor/632c398cedb282d121416e74",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -151,10 +166,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/category",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/category",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -174,7 +192,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"category_code\": \"CTG-0001\",\n    \"category\": \"Business\",\n    \"description\": \"This news is under Business Category\"\n}",
+							"raw": "{\n    \"category_code\": \"CTG-0004\",\n    \"category\": \"Entertainment\",\n    \"description\": \"This news is under Entertainment Category\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -182,10 +200,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/category",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/category",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -204,10 +225,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/category/633222a53c8ca595f4280960",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/category/633222a53c8ca595f4280960",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -236,10 +260,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/category/632c330345b7e97aed74fe44",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/category/632c330345b7e97aed74fe44",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -259,10 +286,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/category/632c330345b7e97aed74fe44",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/category/632c330345b7e97aed74fe44",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -294,10 +324,13 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -320,22 +353,22 @@
 							"formdata": [
 								{
 									"key": "headline",
-									"value": "Headline 8",
+									"value": "Headline 1",
 									"type": "text"
 								},
 								{
 									"key": "text_body",
-									"value": "Body 8",
+									"value": "Body 2",
 									"type": "text"
 								},
 								{
 									"key": "media_body",
 									"type": "file",
-									"src": "/home/shinyT480/Downloads/Images/AZNews/Other/gallery3.jpeg"
+									"src": "/home/shinyT480/Downloads/Images/AZNews/Business/business1.jpeg"
 								},
 								{
 									"key": "category",
-									"value": "6331a8a27b4394e8add69228",
+									"value": "633329ffbf7778b7b23b6701",
 									"type": "text"
 								},
 								{
@@ -345,16 +378,19 @@
 								},
 								{
 									"key": "editor",
-									"value": "632fe887514c40003f48b68a",
+									"value": "6332f7fe82febc0cf63afd0f",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -373,10 +409,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news/633222ca3c8ca595f4280968",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news/633222ca3c8ca595f4280968",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -400,22 +439,22 @@
 							"formdata": [
 								{
 									"key": "headline",
-									"value": "Headline 4",
+									"value": "Headline 1",
 									"type": "text"
 								},
 								{
 									"key": "text_body",
-									"value": "Body 4",
+									"value": "Body 1",
 									"type": "text"
 								},
 								{
 									"key": "media_body",
 									"type": "file",
-									"src": "/home/shinyT480/Downloads/Images/AZNews/Other/gallery2.jpeg"
+									"src": "/home/shinyT480/Downloads/Images/AZNews/Business/business3.jpeg"
 								},
 								{
 									"key": "category",
-									"value": "632c330345b7e97aed74fe44",
+									"value": "63333938cc45b7c5b1960878",
 									"type": "text"
 								},
 								{
@@ -425,16 +464,19 @@
 								},
 								{
 									"key": "editor",
-									"value": "632c398cedb282d121416e74",
+									"value": "6332f7fe82febc0cf63afd0f",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news/6331a0687b4394e8add69043",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news/63333997cc45b7c5b196088f",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -442,7 +484,7 @@
 								"api",
 								"v1",
 								"news",
-								"6331a0687b4394e8add69043"
+								"63333997cc45b7c5b196088f"
 							]
 						}
 					},
@@ -454,10 +496,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news/632b9683bc8c803c49e60b99",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news/632b9683bc8c803c49e60b99",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -477,10 +522,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news/file/1664194989650-health1.jpeg",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news/file/1664194989650-health1.jpeg",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -501,10 +549,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/news/file/1664078725314-sports2.jpeg",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/news/file/1664078725314-sports2.jpeg",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -530,10 +581,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/gallery/632c56e75dd65a534a54c296",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/gallery/632c56e75dd65a534a54c296",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -553,10 +607,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/gallery",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/gallery",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -585,10 +642,13 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/gallery",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/gallery",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -607,10 +667,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/gallery/file/1663850241926-car.png",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/gallery/file/1663850241926-car.png",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [
@@ -631,10 +694,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/az_news/api/v1/gallery/file/632c55f8970f081495c49483",
+							"raw": "http://104.43.57.150:4000/az_news/api/v1/gallery/file/632c55f8970f081495c49483",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"104",
+								"43",
+								"57",
+								"150"
 							],
 							"port": "4000",
 							"path": [

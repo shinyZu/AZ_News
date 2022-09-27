@@ -35,15 +35,9 @@ class EditorService {
       axios
         .post("editor", data)
         .then((res) => {
-          console.log("==============saveEditor then======================");
-          console.log(res);
-          console.log("=============================================");
           return resolve(res);
         })
         .catch((er) => {
-          console.log("==============saveEditor catch======================");
-          console.log(res);
-          console.log("=============================================");
           return resolve(er);
         });
     });
