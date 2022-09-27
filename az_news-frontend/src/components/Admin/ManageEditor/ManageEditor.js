@@ -94,6 +94,7 @@ function ManageEditor() {
       },
       onConfirm: async () => {
         let res = await EditorService.saveEditor(editorFormData);
+        console.log(res);
         if (res.status === 201) {
           setOpenAlert({
             open: true,
@@ -104,6 +105,7 @@ function ManageEditor() {
           setConfirmDialog({ isOpen: false });
           clearEditorForm();
         } else {
+          console.log(res);
           setOpenAlert({
             open: true,
             alert: res.response.data.message,
@@ -143,7 +145,8 @@ function ManageEditor() {
         color: "white",
       },
       onConfirm: async () => {
-        let res = await CategoryService.saveEditor(categoryFormData);
+        let res = await CategoryService.saveCategory(categoryFormData);
+        console.log(res);
         if (res.status === 201) {
           setOpenAlert({
             open: true,
@@ -154,6 +157,7 @@ function ManageEditor() {
           setConfirmDialog({ isOpen: false });
           clearCategoryForm();
         } else {
+          console.log(res);
           setOpenAlert({
             open: true,
             alert: res.response.data.message,

@@ -30,7 +30,7 @@ class CategoryService {
     return await promise;
   };
 
-  saveEditor = async (data) => {
+  saveCategory = async (data) => {
     const promise = new Promise((resolve, reject) => {
       axios
         .post("category", data)

@@ -108,6 +108,7 @@ function ManageNews(props) {
 
   const getAllCategories = async () => {
     let res = await CategoryService.getAll();
+    console.log(res);
     if (res.status === 200) {
       if (res.data != []) {
         let categories = res.data;
@@ -129,7 +130,7 @@ function ManageNews(props) {
 
   const getAllEditors = async () => {
     let res = await EditorService.getAll();
-    // console.log(res);
+    console.log(res);
     if (res.status === 200) {
       if (res.data != []) {
         let editors = res.data;
@@ -216,6 +217,7 @@ function ManageNews(props) {
       },
       onConfirm: async () => {
         let res = await NewsService.publish(data);
+        console.log(res);
         if (res.status === 201) {
           setOpenAlert({
             open: true,

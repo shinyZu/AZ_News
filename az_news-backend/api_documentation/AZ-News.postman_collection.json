@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "323e69ac-092a-452e-a83f-f2a8b89da77e",
+		"name": "AZ-News",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21404145"
+	},
+	"item": [
+		{
+			"name": "Editor",
+			"item": [
+				{
+					"name": "getAllEditors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/editor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"editor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveEditor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"editor_nic\": \"995922121v\",\n    \"name\": \"Kamal Bandara\",\n    \"address\": \"Galle\",\n    \"email\": \"kamal@gmail.com\",\n    \"contact_no\": \"0716455451\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/editor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"editor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEditor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"editor_nic\": \"995922122v\",\n    \"name\": \"Kamal Bandara\",\n    \"address\": \"Galle\",\n    \"email\": \"kamal@gmail.com\",\n    \"contact_no\": \"0716455452\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/editor/632c337da72cfe2866364e2a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"editor",
+								"632c337da72cfe2866364e2a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEditor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/editor/6332227b3c8ca595f428095a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"editor",
+								"6332227b3c8ca595f428095a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchEditoryById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/editor/632c398cedb282d121416e74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"editor",
+								"632c398cedb282d121416e74"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "getAllCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category_code\": \"CTG-0001\",\n    \"category\": \"Business\",\n    \"description\": \"This news is under Business Category\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/category/633222a53c8ca595f4280960",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"category",
+								"633222a53c8ca595f4280960"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category_code\": \"CTG-0001\",\n    \"category\": \"Business\",\n    \"description\": \"This news is under Business Category\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/category/632c330345b7e97aed74fe44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"category",
+								"632c330345b7e97aed74fe44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/category/632c330345b7e97aed74fe44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"category",
+								"632c330345b7e97aed74fe44"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "getAllNews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishNews",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "headline",
+									"value": "Headline 8",
+									"type": "text"
+								},
+								{
+									"key": "text_body",
+									"value": "Body 8",
+									"type": "text"
+								},
+								{
+									"key": "media_body",
+									"type": "file",
+									"src": "/home/shinyT480/Downloads/Images/AZNews/Other/gallery3.jpeg"
+								},
+								{
+									"key": "category",
+									"value": "6331a8a27b4394e8add69228",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022-09-26",
+									"type": "text"
+								},
+								{
+									"key": "editor",
+									"value": "632fe887514c40003f48b68a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteNews",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news/633222ca3c8ca595f4280968",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news",
+								"633222ca3c8ca595f4280968"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateNews",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "headline",
+									"value": "Headline 4",
+									"type": "text"
+								},
+								{
+									"key": "text_body",
+									"value": "Body 4",
+									"type": "text"
+								},
+								{
+									"key": "media_body",
+									"type": "file",
+									"src": "/home/shinyT480/Downloads/Images/AZNews/Other/gallery2.jpeg"
+								},
+								{
+									"key": "category",
+									"value": "632c330345b7e97aed74fe44",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022-09-27",
+									"type": "text"
+								},
+								{
+									"key": "editor",
+									"value": "632c398cedb282d121416e74",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news/6331a0687b4394e8add69043",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news",
+								"6331a0687b4394e8add69043"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchNewsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news/632b9683bc8c803c49e60b99",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news",
+								"632b9683bc8c803c49e60b99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublishedFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news/file/1664194989650-health1.jpeg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news",
+								"file",
+								"1664194989650-health1.jpeg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePublishedFile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/news/file/1664078725314-sports2.jpeg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"news",
+								"file",
+								"1664078725314-sports2.jpeg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gallery",
+			"item": [
+				{
+					"name": "deleteImageById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/gallery/632c56e75dd65a534a54c296",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"gallery",
+								"632c56e75dd65a534a54c296"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllImages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/gallery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "body",
+									"type": "file",
+									"src": "/home/shinyT480/Downloads/Images/cover.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/gallery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGalleryImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/gallery/file/1663850241926-car.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"gallery",
+								"file",
+								"1663850241926-car.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImageByFileName",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/az_news/api/v1/gallery/file/632c55f8970f081495c49483",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"az_news",
+								"api",
+								"v1",
+								"gallery",
+								"file",
+								"632c55f8970f081495c49483"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

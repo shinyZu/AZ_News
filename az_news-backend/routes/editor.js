@@ -52,8 +52,6 @@ router.post("/", cors(), async (req, res) => {
   editor.save((err, result) => {
     // if any error occured while saving
     if (err) {
-      // console.log(err);
-      // console.log(err.keyPattern.nic_no);
       if (err.errors) {
         return res.status(500).json({ message: err.message.split(":")[2] });
       }

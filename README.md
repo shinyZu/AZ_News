@@ -1,4 +1,4 @@
-# AZ News 
+# AZ News
 
 <br>
 
@@ -15,11 +15,20 @@
 
 <br>
 
-<img src = "az_news-frontend/src/assets/screenshots/5.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/6.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/7.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/8.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/1.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/2.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/4.png" alt = "sample"> <br><br>
-<img src = "az_news-frontend/src/assets/screenshots/3.png" alt = "sample"> <br><br>
+## Links :
+
+- [Site Map](https://www.gloomaps.com/meZkj9crcr)
+- [Wireframe](https://wireframe.cc/pro/pp/39f47649e582839)
+
+<br>
+
+<img src = "az_news-frontend/src/assets/screenshots/a.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/b.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/c.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/d.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/e.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/f.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/g.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/h.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/i.png" alt = "sample"> <br><br>
+<img src = "az_news-frontend/src/assets/screenshots/k.png" alt = "sample"> <br><br>
