@@ -67,6 +67,16 @@ function NewsCard(props) {
   return (
     <>
       {path === "news" && (
+        // <Grid
+        //   container
+        //   item
+        //   xl={12}
+        //   lg={12}
+        //   md={12}
+        //   sm={12}
+        //   xs={12}
+        //   className={styles.container__main}
+        // >
         <Grid
           container
           item
@@ -75,30 +85,21 @@ function NewsCard(props) {
           md={12}
           sm={12}
           xs={12}
-          className={styles.container__main}
+          className={styles.container__card}
+          style={{
+            // border: "2px solid red",
+            backgroundImage: `linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), url("${props.image}")`,
+          }}
         >
-          <Grid
-            container
-            item
-            xl={12}
-            lg={12}
-            md={12}
-            sm={12}
-            xs={12}
-            className={styles.container__card}
-            style={{
-              backgroundImage: `linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), url("${props.image}")`,
-            }}
-          >
-            <CardTag
-              displayStatus={true}
-              category={categoryName}
-              headline={props.headline}
-              date={monthDate}
-              chip_color={chipColor}
-            />
-          </Grid>
+          <CardTag
+            displayStatus={true}
+            category={categoryName}
+            headline={props.headline}
+            date={monthDate}
+            chip_color={chipColor}
+          />
         </Grid>
+        // </Grid>
       )}
 
       {path === "sports" && categoryName === "Sports" && (

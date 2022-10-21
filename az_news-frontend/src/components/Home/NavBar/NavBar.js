@@ -67,14 +67,14 @@ function NavBar(props) {
           </NavLink>
 
           <NavLink
-            to=""
+            to="/"
             className={styles.nav__text} /* style={navLinkStyle} */
           >
             <Tab value="4" className={styles.nav__text} label="About Us" />
           </NavLink>
 
           <NavLink
-            to=""
+            to="/"
             className={styles.nav__text} /* style={navLinkStyle} */
           >
             <Tab value="5" className={styles.nav__text} label="Contact Us" />

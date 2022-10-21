@@ -24,10 +24,13 @@ function NewsInDetail() {
   const location = useLocation();
   const { news } = location.state;
 
+  const imageURL = "http://localhost:4000/az_news/api/v1/news/file/";
+
   useEffect(() => {
     getCategoryName(news.category);
     formatDate(news.date);
     getEditorName(news.editor);
+    setMedia(imageURL + news.media_body.split("/file/")[1]);
 
     switch (categoryName) {
       case "Business":
@@ -57,7 +60,7 @@ function NewsInDetail() {
       default:
         break;
     }
-  }, [editorName, categoryName, monthDate]);
+  }, [media, editorName, categoryName, monthDate]);
 
   const getEditorName = async (id) => {
     let res = await EditorService.searchById(id);
@@ -140,7 +143,7 @@ function NewsInDetail() {
           xs={12}
           className={styles.container__2}
         >
-          <Typography variant="h4" className={styles.category__text}>
+          <Typography variant="h4" className={styles.category__text} mb={3}>
             {news.headline}
           </Typography>
         </Grid>
@@ -287,6 +290,7 @@ function NewsInDetail() {
           xs={12}
           justifyContent="center"
           className={styles.container__4}
+          mb={2}
         >
           <Grid
             container

@@ -72,7 +72,7 @@ function Header() {
           <Grid
             container
             item
-            xl={10}
+            xl={9}
             lg={9.5}
             md={8.5}
             sm={6.5}
