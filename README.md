@@ -2,7 +2,20 @@
 
 <br>
 
-### This is a simple news website with a simple admin dashboard done using JavaScript
+#### Description
+AZ News is a full-stack news management web application developed to practice and strengthen my skills in the MERN stack. It includes an admin dashboard that allows authorized users to perform full CRUD operations on both news articles and editor accounts.
+The project is entirely self-contained and does not rely on third-party APIs. Instead, it focuses on core backend development, secure data handling, and a clean, responsive frontend interface to manage news content effectively.
+
+#### Key Features
+- Admin authentication and access control.
+- Create, Read, Update, and Delete operations for news articles.
+- CRUD operations for managing editor profiles.
+- Responsive and intuitive user interface built with React.
+- RESTful API built with Express.js and Node.js.
+- MongoDB used for data persistence.
+
+#### Purpose
+This project was designed as a hands-on learning experience to deepen my understanding of building scalable CRUD-based applications, user role management, and full-stack integration using the MERN stack.
 
 <br>
 
